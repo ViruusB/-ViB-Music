@@ -1,22 +1,28 @@
-const { MessageEmbed } = require("discord.js");
-const sendError = require("../util/error");
+const { MessageEmbed } = require('discord.js');
+const sendError = require('../util/error');
 
 module.exports = {
   info: {
-    name: "queue",
-    description: "To show the server songs queue",
-    usage: "",
-    aliases: ["q", "list", "songlist", "song-list"],
+    name: 'queue',
+    description: "Pour afficher la file d'attente des chansons.",
+    usage: '',
+    aliases: ['q', 'list', 'songlist', 'song-list'],
   },
 
   run: async function (client, message, args) {
- 
-  const permissions = message.channel.permissionsFor(message.client.user);
-    if (!permissions.has(["MANAGE_MESSAGES", "ADD_REACTIONS"]))
-      return sendError("Missing permission to manage messages or add reactions",message.channel);
+    const permissions = message.channel.permissionsFor(message.client.user);
+    if (!permissions.has(['MANAGE_MESSAGES', 'ADD_REACTIONS']))
+      return sendError(
+        "Il manque l'autorisation de gérer les messages ou d'ajouter des réactions",
+        message.channel
+      );
 
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return sendError("There is nothing playing in this server.",message.channel)
+    if (!queue)
+      return sendError(
+        "Il n'y a rien qui joue sur ce serveur.",
+        message.channel
+      );
 
     let currentPage = 0;
     const embeds = generateQueueEmbed(message, queue.songs);
@@ -27,29 +33,38 @@ module.exports = {
     );
 
     try {
-      await queueEmbed.react("⬅️");
-      await queueEmbed.react("🛑");
-      await queueEmbed.react("➡️");
+      await queueEmbed.react('⬅️');
+      await queueEmbed.react('🛑');
+      await queueEmbed.react('➡️');
     } catch (error) {
       console.error(error);
       message.channel.send(error.message).catch(console.error);
     }
 
     const filter = (reaction, user) =>
-      ["⬅️", "🛑", "➡️"].includes(reaction.emoji.name) && message.author.id === user.id;
-    const collector = queueEmbed.createReactionCollector(filter, { time: 60000 });
+      ['⬅️', '🛑', '➡️'].includes(reaction.emoji.name) &&
+      message.author.id === user.id;
+    const collector = queueEmbed.createReactionCollector(filter, {
+      time: 60000,
+    });
 
-    collector.on("collect", async (reaction, user) => {
+    collector.on('collect', async (reaction, user) => {
       try {
-        if (reaction.emoji.name === "➡️") {
+        if (reaction.emoji.name === '➡️') {
           if (currentPage < embeds.length - 1) {
             currentPage++;
-            queueEmbed.edit(`**\`${currentPage + 1}\`**/**${embeds.length}**`, embeds[currentPage]);
+            queueEmbed.edit(
+              `**\`${currentPage + 1}\`**/**${embeds.length}**`,
+              embeds[currentPage]
+            );
           }
-        } else if (reaction.emoji.name === "⬅️") {
+        } else if (reaction.emoji.name === '⬅️') {
           if (currentPage !== 0) {
             --currentPage;
-            queueEmbed.edit(`**\`${currentPage + 1}\`**/**${embeds.length}**`, embeds[currentPage]);
+            queueEmbed.edit(
+              `**\`${currentPage + 1}\`**/**${embeds.length}**`,
+              embeds[currentPage]
+            );
           }
         } else {
           collector.stop();
@@ -61,7 +76,7 @@ module.exports = {
         return message.channel.send(error.message).catch(console.error);
       }
     });
-  }
+  },
 };
 
 function generateQueueEmbed(message, queue) {
@@ -73,23 +88,34 @@ function generateQueueEmbed(message, queue) {
     let j = i;
     k += 10;
 
-    const info = current.map((track) => `**\`${++j}\`** | [\`${track.title}\`](${track.url})`).join("\n");
-  
-    const serverQueue =message.client.queue.get(message.guild.id);
+    const info = current
+      .map((track) => `**\`${++j}\`** | [\`${track.title}\`](${track.url})`)
+      .join('\n');
+
+    const serverQueue = message.client.queue.get(message.guild.id);
     const embed = new MessageEmbed()
-     .setAuthor("Server Songs Queue", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
-    .setThumbnail(message.guild.iconURL())
-    .setColor("BLUE")
-    .setDescription(`${info}`)
-    .addField("Now Playing", `[${queue[0].title}](${queue[0].url})`, true)
-    .addField("Text Channel", serverQueue.textChannel, true)
-    .addField("Voice Channel", serverQueue.voiceChannel, true)
-    .setFooter("Currently Server Volume is "+serverQueue.volume)
-     if(serverQueue.songs.length === 1)embed.setDescription(`No songs to play next add songs by \`\`${message.client.config.prefix}play <song_name>\`\``)
+      .setAuthor(
+        "File d'attente",
+        'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+      )
+      .setThumbnail(message.guild.iconURL())
+      .setColor('BLUE')
+      .setDescription(`${info}`)
+      .addField(
+        'Joue actuellement',
+        `[${queue[0].title}](${queue[0].url})`,
+        true
+      )
+      .addField('Channel Texte', serverQueue.textChannel, true)
+      .addField('Channel Vocal', serverQueue.voiceChannel, true)
+      .setFooter('Le volume actuel est de: ' + serverQueue.volume);
+    if (serverQueue.songs.length === 1)
+      embed.setDescription(
+        `Aucune chanson à lire dans la file d'attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``
+      );
 
     embeds.push(embed);
   }
 
   return embeds;
- 
-};
+}

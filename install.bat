@@ -1,3 +1,3 @@
 npm i
-echo "Successfully Installed now open start.bat or run by node index.js"
+echo "Installé avec succès, ouvrez maintenant start.bat ou exécutez par node index.js"
 PAUSE

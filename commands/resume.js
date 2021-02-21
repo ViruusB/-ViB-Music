@@ -1,11 +1,11 @@
-const { MessageEmbed } = require("discord.js");
-const sendError = require("../util/error");
+const { MessageEmbed } = require('discord.js');
+const sendError = require('../util/error');
 
 module.exports = {
   info: {
-    name: "resume",
-    description: "To resume the paused music",
-    usage: "",
+    name: 'resume',
+    description: 'Pour reprendre la musique en pause.',
+    usage: '',
     aliases: [],
   },
 
@@ -15,11 +15,14 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
-      .setDescription("▶ Resumed the music for you!")
-      .setColor("YELLOW")
-      .setAuthor("Music has been Resumed!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+        .setDescription('▶ Reprend la musique pour vous')
+        .setColor('YELLOW')
+        .setAuthor(
+          'La musique à Repris !',
+          'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+        );
       return message.channel.send(xd);
     }
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("Il n'y a rien qui joue sur ce serveur.", message.channel);
   },
 };

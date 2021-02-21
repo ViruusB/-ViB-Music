@@ -1,30 +1,33 @@
-const { MessageEmbed } = require("discord.js");
-const sendError = require("../util/error");
+const { MessageEmbed } = require('discord.js');
+const sendError = require('../util/error');
 
 module.exports = {
   info: {
-    name: "pause",
-    description: "To pause the current music in the server",
-    usage: "[pause]",
-    aliases: ["pause"],
+    name: 'pause',
+    description: 'Pour mettre en pause la musique actuelle.',
+    usage: '[pause]',
+    aliases: ['pause'],
   },
 
   run: async function (client, message, args) {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
-	    try{
-      serverQueue.connection.dispatcher.pause()
-	  } catch (error) {
+      try {
+        serverQueue.connection.dispatcher.pause();
+      } catch (error) {
         message.client.queue.delete(message.guild.id);
-        return sendError(`:notes: The player has stopped and the queue has been cleared.: ${error}`, message.channel);
-      }	    
+        return sendError(
+          `:notes: L'utilisateur a arrété et la file d'attente a été effacée.: ${error}`,
+          message.channel
+        );
+      }
       let xd = new MessageEmbed()
-      .setDescription("⏸ Paused the music for you!")
-      .setColor("YELLOW")
-      .setTitle("Music has been paused!")
+        .setDescription('⏸ Mettez la musique en pause pour vous !')
+        .setColor('YELLOW')
+        .setTitle('La musique est en Pause !');
       return message.channel.send(xd);
     }
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("Il n'y a rien qui joue sur ce serveur.", message.channel);
   },
 };
