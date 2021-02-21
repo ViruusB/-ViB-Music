@@ -27,7 +27,7 @@ module.exports = {
       .addField('Nom', song.title, true)
       .addField('Duraée', song.duration, true)
       .addField('Demandé par', song.req.tag, true)
-      .setFooter(`Vues sur YouTube: ${song.views} | Depuis: ${song.ago}`);
+      .setFooter(`Vues sur YouTube: ${song.views} | Année: ${song.ago}`);
     return message.channel.send(thing);
   },
 };
