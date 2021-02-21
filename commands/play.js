@@ -130,7 +130,7 @@ module.exports = {
           "Aucune musiques n'a été trouvée dans la file d'attente de la playlist.\n Ajouter de la musique encore et encore 24h/24 7j/7\n\n Merci d'utiliser Poseidon !",
           message.channel
         );
-        message.guild.me.voice.channel.leave(); //If you want your bot stay in vc 24/7 remove this line :D
+        message.guild.me.voice.channel.leave();
         message.client.queue.delete(message.guild.id);
         return;
       }
