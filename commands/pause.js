@@ -23,7 +23,7 @@ module.exports = {
         );
       }
       let xd = new MessageEmbed()
-        .setDescription('⏸ Mettez la musique en pause pour vous !')
+        .setDescription('⏸ La musique a été mis en pause !')
         .setColor('YELLOW')
         .setTitle('La musique est en Pause !');
       return message.channel.send(xd);

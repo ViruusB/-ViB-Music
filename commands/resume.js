@@ -15,7 +15,7 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
-        .setDescription('▶ Reprend la musique pour vous')
+        .setDescription('▶ La musique a été relancé.')
         .setColor('YELLOW')
         .setAuthor(
           'La musique à Repris !',
