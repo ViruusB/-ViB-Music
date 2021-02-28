@@ -20,17 +20,31 @@ fs.readdir(__dirname + '/events/', (err, files) => {
   });
 });
 
-fs.readdir('./commands/', (err, files) => {
+fs.readdir('./commands/Bot/', (err, files) => {
   if (err) return console.error(err);
   files.forEach((file) => {
     if (!file.endsWith('.js')) return;
-    let props = require(`./commands/${file}`);
+    let props = require(`./commands/Bot/${file}`);
     let commandName = file.split('.')[0];
-    client.commands.set(commandName, props);
-    console.log(`Chargement de la Commande: ${commandName}`);
+    console.log(`Chargement de la commande: ${commandName}`);
+    bot.commands.set(commandName, props);
   });
   console.log(
-    `Liste des commandes "Musicales" chargées ! Total: ${files.length}/${files.length}`
+    `Liste des commandes "Bot" chargés ! Total: ${files.length}/${files.length}`
+  );
+});
+
+fs.readdir('./commands/Music/', (err, files) => {
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    if (!file.endsWith('.js')) return;
+    let props = require(`./commands/Music/${file}`);
+    let commandName = file.split('.')[0];
+    console.log(`Chargement de la commande: ${commandName}`);
+    bot.commands.set(commandName, props);
+  });
+  console.log(
+    `Liste des commandes "Music" chargés ! Total: ${files.length}/${files.length}`
   );
 });
 
