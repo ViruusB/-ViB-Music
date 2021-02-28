@@ -27,7 +27,7 @@ fs.readdir('./commands/Bot/', (err, files) => {
     let props = require(`./commands/Bot/${file}`);
     let commandName = file.split('.')[0];
     console.log(`Chargement de la commande: ${commandName}`);
-    bot.commands.set(commandName, props);
+    client.commands.set(commandName, props);
   });
   console.log(
     `Liste des commandes "Bot" chargés ! Total: ${files.length}/${files.length}`
@@ -41,7 +41,7 @@ fs.readdir('./commands/Music/', (err, files) => {
     let props = require(`./commands/Music/${file}`);
     let commandName = file.split('.')[0];
     console.log(`Chargement de la commande: ${commandName}`);
-    bot.commands.set(commandName, props);
+    client.commands.set(commandName, props);
   });
   console.log(
     `Liste des commandes "Music" chargés ! Total: ${files.length}/${files.length}`
