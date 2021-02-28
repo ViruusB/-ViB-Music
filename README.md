@@ -19,7 +19,7 @@ Merci d'utiliser Poseidon !"
 
 # PoseidonBotDiscord
 
-Poseidon est un bot musical discord complet 🎧
+Poseidon est un bot musical discord simple 🎧
 
 # Commandes
 

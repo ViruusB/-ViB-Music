@@ -16,7 +16,7 @@ fs.readdir(__dirname + '/events/', (err, files) => {
     const event = require(__dirname + `/events/${file}`);
     let eventName = file.split('.')[0];
     client.on(eventName, event.bind(null, client));
-    console.log('Loading Event: ' + eventName);
+    console.log('Chargement de Event: ' + eventName);
   });
 });
 
@@ -27,8 +27,11 @@ fs.readdir('./commands/', (err, files) => {
     let props = require(`./commands/${file}`);
     let commandName = file.split('.')[0];
     client.commands.set(commandName, props);
-    console.log('Loading Command: ' + commandName);
+    console.log(`Chargement de la Commande: ${commandName}`);
   });
+  console.log(
+    `Liste des commandes "Musicales" chargées ! Total: ${files.length}/${files.length}`
+  );
 });
 
 client.login(process.env.TOKEN);
