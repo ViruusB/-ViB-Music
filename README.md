@@ -28,7 +28,7 @@
 
 -> Rename total du bot.
 -> Forcer les commandes sur le salon #command-music
--> Masquer le !reload du !help
+-> Modifier les assets.
 
 # PoseidonBotDiscord
 
