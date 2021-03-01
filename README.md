@@ -2,7 +2,7 @@
 
 # MAJ 01/03/2021 | 03/01/2021
 
--> Modification de l'activité du Bot [Retrait du nombre de serveurs]
+-> Modification de l'activité du Bot [Retrait du nombre de serveurs] \n
 -> Modification & Commande de !help en [FR & EN] avec Alias
 -> Modification & Commande de !invite en [FR & EN] avec Alias
 -> Modification & Commande de !leave en [FR & EN] avec Alias

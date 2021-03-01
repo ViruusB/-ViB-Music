@@ -24,8 +24,12 @@ module.exports = {
       )
       .setThumbnail(song.img)
       .setColor('RANDOM')
-      .addField('Nom', song.title, true('\n'))
-      .addField('Durée', song.duration, true('\n'))
+      .addField(
+        'Nom',
+        song.title,
+        true
+      )('\n')
+      .addField('Durée', song.duration, true)
       .addField('Demandé par', song.req.tag, true)
       .setFooter(`Vues sur YouTube: ${song.views} | Année: ${song.ago}`);
     return message.channel.send(thing);
