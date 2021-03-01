@@ -30,10 +30,9 @@ module.exports = {
       ).catch(console.error);
     try {
       const song = queue.songs.splice(args[0] - 1, 1);
-      sendError(
-        `❌ **|** **\`${song[0].title}\`** supprimé de la liste.`,
-        queue.textChannel
-      ).catch(console.error);
+      sendError(`❌ **|** **\`${song[0].title}\`**`, queue.textChannel).catch(
+        console.error
+      );
       message.react('✅');
     } catch (error) {
       return sendError(
