@@ -3,26 +3,26 @@
 # MAJ 01/03/2021 | 03/01/2021
 
 -> Modification de l'activité du Bot [Retrait du nombre de serveurs]
--> Modification & Commande de !help en [FR & EN] avec Alias
--> Modification & Commande de !invite en [FR & EN] avec Alias
--> Modification & Commande de !leave en [FR & EN] avec Alias
--> Modification & Commande de !loop en [FR & EN] avec Alias
--> Modification & Commande de !lyrics en [FR & EN] avec Alias
--> Modification & Commande de !nowplaying en [FR & EN] avec Alias
--> Modification & Commande de !pause en [FR & EN] avec Alias
--> Modification & Commande de !play en [FR & EN] avec Alias
--> Modification & Commande de !playlist en [FR & EN] avec Alias
--> Modification & Commande de !queue en [FR & EN] avec Alias
--> Modification & Commande de !remove en [FR & EN] avec Alias
--> Modification & Commande de !resume en [FR & EN] avec Alias
--> Modification & Commande de !search en [FR & EN] avec Alias
--> Modification & Commande de !shuffle en [FR & EN] avec Alias
--> Modification & Commande de !skip en [FR & EN] avec Alias
--> Modification & Commande de !skipto en [FR & EN] avec Alias
--> Modification & Commande de !volume en [FR & EN avec Alias
--> Ajout de la fonction !reload pour notifier un redémarrage du Bot
--> Restructuration des Dossiers/Fichiers
 -> Ajout en [API] sur combien de serveurs est le Bot
+-> Modification & Commande de !help avec Alias [FR & EN]
+-> Modification & Commande de !invite avec Alias [FR & EN]
+-> Modification & Commande de !leave avec Alias [FR & EN]
+-> Modification & Commande de !loop avec Alias [FR & EN]
+-> Modification & Commande de !lyrics avec Alias [FR & EN]
+-> Modification & Commande de !nowplaying avec Alias [FR & EN]
+-> Modification & Commande de !pause avec Alias [FR & EN]
+-> Modification & Commande de !play avec Alias [FR & EN]
+-> Modification & Commande de !playlist avec Alias [FR & EN]
+-> Modification & Commande de !queue avec Alias [FR & EN]
+-> Modification & Commande de !remove avec Alias [FR & EN]
+-> Modification & Commande de !resume avec Alias [FR & EN]
+-> Modification & Commande de !search avec lias [FR & EN]
+-> Modification & Commande de !shuffle avec Alias [FR & EN]
+-> Modification & Commande de !skip avec Alias [FR & EN]
+-> Modification & Commande de !skipto avec Alias [FR & EN]
+-> Modification & Commande de !volume avec Alias [FR & EN]
+-> Ajout de la notification du bot en ligne [ :gear: ]
+-> Restructuration des Dossiers/Fichiers
 -> Modification des Assets.
 -> Update du Bot en 2.0
 
