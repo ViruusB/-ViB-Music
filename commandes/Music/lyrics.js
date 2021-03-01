@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const lyricsFinder = require('lyrics-finder');
-const sendError = require('../util/error');
+const sendError = require('../../util/error');
 
 module.exports = {
   info: {

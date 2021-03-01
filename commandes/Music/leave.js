@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const sendError = require('../util/error');
+const sendError = require('../../util/error');
 
 module.exports = {
   info: {
@@ -31,6 +31,7 @@ module.exports = {
 
     const Embed = new MessageEmbed()
       .setAuthor(
+        'Leave',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setColor('RED')

@@ -5,7 +5,7 @@ module.exports = {
     name: 'help',
     description: 'Pour afficher toutes les commandes',
     usage: 'ou [!help nom_de_la_commande]',
-    aliases: ['commandes', 'aide'],
+    aliases: ['commandes', 'aide', 'commande'],
   },
 
   run: async function (client, message, args) {

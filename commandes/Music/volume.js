@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const sendError = require('../util/error');
+const sendError = require('../../util/error');
 
 module.exports = {
   info: {
@@ -29,7 +29,7 @@ module.exports = {
       );
     if (!args[0])
       return message.channel.send(
-        `\`\`Le volume actuel est de: **${serverQueue.volume} :loud_sound: **\`\``
+        `\`\`Le volume actuel est de:\`\` **${serverQueue.volume} :loud_sound: **`
       );
     if (isNaN(args[0]))
       return message.channel
@@ -45,6 +45,7 @@ module.exports = {
     let xd = new MessageEmbed()
       .setDescription(`Volume réglé sur: **${args[0] / 1} :loud_sound: **`)
       .setAuthor(
+        'Volume',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setColor('YELLOW');

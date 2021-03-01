@@ -1,12 +1,12 @@
-const { Util, MessageEmbed } = require('discord.js');
-const sendError = require('../util/error');
+const { MessageEmbed } = require('discord.js');
+const sendError = require('../../util/error');
 
 module.exports = {
   info: {
-    name: 'skip',
-    description: 'Pour passer la musique actuelle',
+    name: 'stop',
+    description: "Pour arrêter la musique et effacer la file d'attente",
     usage: '',
-    aliases: ['s', 'passer', 'sk'],
+    aliases: [],
   },
 
   run: async function (client, message, args) {
@@ -19,34 +19,23 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue)
       return sendError(
-        "Je ne peux pas passer cette musique. Aucune musiques en attente n'a été trouvées.",
+        "Il n'y a aucune chanson en cour que je pourrais arrêter.",
         message.channel
       );
     if (!serverQueue.connection) return;
     if (!serverQueue.connection.dispatcher) return;
-    if (serverQueue && !serverQueue.playing) {
-      serverQueue.playing = true;
-      serverQueue.connection.dispatcher.resume();
-      let xd = new MessageEmbed()
-        .setDescription('▶ | Reprend la musique pour vous')
-        .setColor('YELLOW')
-        .setAuthor(
-          'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
-        );
-
-      return message.channel.send(xd).catch((err) => console.log(err));
-    }
-
     try {
       serverQueue.connection.dispatcher.end();
     } catch (error) {
-      serverQueue.voiceChannel.leave();
+      message.guild.me.voice.channel.leave();
       message.client.queue.delete(message.guild.id);
       return sendError(
         `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: ${error}`,
         message.channel
       );
     }
+    message.client.queue.delete(message.guild.id);
+    serverQueue.songs = [];
     message.react('✅');
   },
 };

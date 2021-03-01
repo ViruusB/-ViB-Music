@@ -2,7 +2,7 @@
 
 # MAJ 01/03/2021 | 03/01/2021
 
--> Modification de l'activité du Bot [Retrait du nombre de serveurs] \n
+-> Modification de l'activité du Bot [Retrait du nombre de serveurs]
 -> Modification & Commande de !help en [FR & EN] avec Alias
 -> Modification & Commande de !invite en [FR & EN] avec Alias
 -> Modification & Commande de !leave en [FR & EN] avec Alias
@@ -20,11 +20,15 @@
 -> Modification & Commande de !skip en [FR & EN] avec Alias
 -> Modification & Commande de !skipto en [FR & EN] avec Alias
 -> Modification & Commande de !volume en [FR & EN avec Alias
--> Ajout de la fonction !reload avec notification de Redémarrage du Bot.
+-> Ajout de la fonction !reload pour notifier un redémarrage du Bot
+-> Restructuration des Dossiers/Fichiers
+-> Ajout en [API] sur combien de serveurs est le Bot
 
 # En cour de modification
 
 -> Rename total du bot.
+-> Forcer les commandes sur le salon #command-music
+-> Masquer le !reload du !help
 
 # PoseidonBotDiscord
 
@@ -50,10 +54,11 @@ Poseidon est un bot musical discord simple 🎧
 !skipto
 !stop
 !volume
+!reload
 
 ## Installation
 
-npm install -> Installation des modules nécessaire et de votre package.
+npm install / npm i -> Installation des modules nécessaire et de votre package.
 
 TOKEN -> Déjà programmé pour l'hebergement sur Heroku
 PREFIX -> Déjà programmé pour l'hebergement sur Heroku

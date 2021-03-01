@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const sendError = require('../util/error');
+const sendError = require('../../util/error');
 
 module.exports = {
   info: {
@@ -26,6 +26,7 @@ module.exports = {
         .setDescription('⏸ | La musique a été mis en pause !')
         .setColor('YELLOW')
         .setAuthor(
+          'Pause',
           'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
         );
       return message.channel.send(xd);
