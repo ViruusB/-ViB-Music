@@ -24,10 +24,10 @@
 -> Restructuration des Dossiers/Fichiers
 -> Ajout en [API] sur combien de serveurs est le Bot
 -> Modification des Assets.
+-> Update du Bot en 2.0
 
 # En cour de modification
 
--> Rename total du bot.
 -> Forcer les commandes sur le salon #command-music
 
 # [ViB]MusicBotDiscord

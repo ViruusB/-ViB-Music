@@ -11,7 +11,7 @@ module.exports = async (client) => {
       `${client.guilds.cache
         .map((g) => g.memberCount)
         .reduce((a, b) => a + b)} utilisateurs`,
-      '[ViB]MusicMusic',
+      '[ViB]Music',
     ],
     i = 0;
 
