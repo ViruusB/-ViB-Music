@@ -9,7 +9,7 @@ module.exports = {
   run: async function (client, message, args) {
     await message.delete();
     await client.channels.cache
-      .get('715930615173611567')
+      .get('749855316543537163')
       .send('⚙️ | Poseidon redémarre !');
     process.exit();
   },
