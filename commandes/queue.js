@@ -95,13 +95,17 @@ function generateQueueEmbed(message, queue) {
     const serverQueue = message.client.queue.get(message.guild.id);
     const embed = new MessageEmbed()
       .setAuthor(
-        'Liste musicale en cour',
+        'Liste musicale actuelle',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setThumbnail(message.guild.iconURL())
       .setColor('BLUE')
       .setDescription(`${info}`)
-      .addField('Lecture en cour', `[${queue[0].title}](${queue[0].url})`, true)
+      .addField(
+        'Lecture actuelle',
+        `[${queue[0].title}](${queue[0].url})`,
+        '\n'
+      )
       .addField('Salon Texte', serverQueue.textChannel, true)
       .addField('Salon Vocal', serverQueue.voiceChannel, true)
       .setFooter('Le volume actuel est de: ' + serverQueue.volume);

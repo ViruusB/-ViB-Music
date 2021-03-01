@@ -104,7 +104,7 @@ module.exports = {
         )
         .setThumbnail(song.img)
         .setColor('RANDOM')
-        .addField('Nom', song.title, true)
+        .addField('Nom', song.title, '\n')
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
         .setFooter(`Vues: ${song.views} | Année: ${song.ago}`);
@@ -178,7 +178,7 @@ module.exports = {
         )
         .setThumbnail(song.img)
         .setColor('RANDOM')
-        .addField('Nom', song.title, true)
+        .addField('Nom', song.title, '\n')
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
         .setFooter(`Vues: ${song.views} | Année: ${song.ago}`);

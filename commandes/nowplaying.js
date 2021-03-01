@@ -19,7 +19,7 @@ module.exports = {
     let song = serverQueue.songs[0];
     let thing = new MessageEmbed()
       .setAuthor(
-        'Lecture en cour...',
+        'Lecture en cour',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setThumbnail(song.img)

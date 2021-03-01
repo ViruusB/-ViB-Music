@@ -24,7 +24,6 @@
 # En cour de modification
 
 -> Rename total du bot.
--> Passer les EMBEDS en \n ('\n') (retour à la ligne) de: !nowplaying - !play - !playlist - !queue - !search
 
 # PoseidonBotDiscord
 
