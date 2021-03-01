@@ -25,7 +25,6 @@
 # En cour de modification
 
 -> Rename total du bot.
--> Rendre le !reload privé.
 
 # PoseidonBotDiscord
 
