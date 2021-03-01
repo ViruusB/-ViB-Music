@@ -1,1 +1,1 @@
-worker: node poseidon.js
+worker: node [ViB]Music.js

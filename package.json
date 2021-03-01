@@ -1,7 +1,7 @@
 {
-  "name": "Poseidon",
+  "name": "[ViB]Music",
   "version": "3.0.0",
-  "description": "Poseidon possède la musique",
+  "description": "[ViB]Music Bot Musique",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

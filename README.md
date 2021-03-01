@@ -23,16 +23,16 @@
 -> Ajout de la fonction !reload pour notifier un redémarrage du Bot
 -> Restructuration des Dossiers/Fichiers
 -> Ajout en [API] sur combien de serveurs est le Bot
+-> Modification des Assets.
 
 # En cour de modification
 
 -> Rename total du bot.
 -> Forcer les commandes sur le salon #command-music
--> Modifier les assets.
 
-# PoseidonBotDiscord
+# [ViB]MusicBotDiscord
 
-Poseidon est un bot musical discord simple 🎧
+[ViB]Music est un bot musical discord simple 🎧
 
 # Commandes
 

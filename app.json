@@ -1,7 +1,7 @@
 {
-  "name": "Poseidon",
+  "name": "[ViB]Music",
   "description": "Bot de musique discord avec le discord.js",
-  "repository": "https://github.com/ViruusB/Poseidon",
+  "repository": "https://github.com/ViruusB/-ViB-Music",
   "logo": "",
   "keywords": ["node", "discord", "youtube","music","bot"],
   "image": "heroku/nodejs",

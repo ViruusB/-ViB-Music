@@ -5,13 +5,13 @@ module.exports = async (client) => {
   );
   client.channels.cache
     .get('749855316543537163')
-    .send('⚙️ | Poseidon est en ligne !');
+    .send('⚙️ | [ViB]Music est en ligne !');
   let activities = [
       '!help',
       `${client.guilds.cache
         .map((g) => g.memberCount)
         .reduce((a, b) => a + b)} utilisateurs`,
-      'PoseidonMusic',
+      '[ViB]MusicMusic',
     ],
     i = 0;
 
