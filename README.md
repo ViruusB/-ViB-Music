@@ -1,21 +1,30 @@
 ©ViruusB
 
-# Validation du Bot Musical
+# MAJ 01/03/2021 | 03/01/2021
 
--> 95%.
--> Finition en cour.
+-> Modification de l'activité du Bot [Retrait du nombre de serveurs]
+-> Modification & Commande de !help en [FR & EN] avec Alias
+-> Modification & Commande de !invite en [FR & EN] avec Alias
+-> Modification & Commande de !leave en [FR & EN] avec Alias
+-> Modification & Commande de !loop en [FR & EN] avec Alias
+-> Modification & Commande de !lyrics en [FR & EN] avec Alias
+-> Modification & Commande de !nowplaying en [FR & EN] avec Alias
+-> Modification & Commande de !pause en [FR & EN] avec Alias
+-> Modification & Commande de !play en [FR & EN] avec Alias
+-> Modification & Commande de !playlist en [FR & EN] avec Alias
+-> Modification & Commande de !queue en [FR & EN] avec Alias
+-> Modification & Commande de !remove en [FR & EN] avec Alias
+-> Modification & Commande de !resume en [FR & EN] avec Alias
+-> Modification & Commande de !search en [FR & EN] avec Alias
+-> Modification & Commande de !shuffle en [FR & EN] avec Alias
+-> Modification & Commande de !skip en [FR & EN] avec Alias
+-> Modification & Commande de !skipto en [FR & EN] avec Alias
+-> Modification & Commande de !volume en [FR & EN avec Alias
 
 # En cour de modification
 
--> Modification de noms de commandes [FR & EN]
--> Une fois les musiques terminées, modifier sont texte.
-" Aucune musiques n'a été trouvée dans la file d'attente de la playlist.
-Ajouter de la musique encore et encore 24h/24 7j/7
-Merci d'utiliser Poseidon !"
 -> Rename total du bot.
--> Modifier description & usage du help des commandes pour plus de lisibilité.
--> Modifier le !invite (Double lien + description)
--> Revoir les descriptions de chaque commandes sur les EMBEDS
+-> Passer les EMBEDS en \n ('\n') (retour à la ligne) de: !nowplaying - !play - !playlist - !queue - !search
 
 # PoseidonBotDiscord
 

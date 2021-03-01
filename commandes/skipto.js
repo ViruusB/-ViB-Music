@@ -4,9 +4,9 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'skipto',
-    description: "Passer au numéro de file d'attente sélectionné.",
-    usage: 'skipto <numero>',
-    aliases: ['st'],
+    description: 'Passer au numéro de la liste sélectionné.',
+    usage: '<numero>',
+    aliases: ['st', 'numero', 'skipnum', 'passernumero', 'passernum'],
   },
 
   run: async function (client, message, args) {
@@ -22,13 +22,12 @@ module.exports = {
 
     const queue = message.client.queue.get(message.guild.id);
     if (!queue)
-      return sendError(
-        "Il n'y a pas de file d'attente.",
-        message.channel
-      ).catch(console.error);
+      return sendError('Aucune chanson est en attente.', message.channel).catch(
+        console.error
+      );
     if (args[0] > queue.songs.length)
       return sendError(
-        `La file d'attente est seulement de ${queue.songs.length} chansons !`,
+        `La liste est seulement de ${queue.songs.length} chansons !`,
         message.channel
       ).catch(console.error);
 
@@ -47,7 +46,7 @@ module.exports = {
       queue.voiceChannel.leave();
       message.client.queue.delete(message.guild.id);
       return sendError(
-        `:notes: L'utilisateur a arrêté et la file d'attente a été effacée.: ${error}`,
+        `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: ${error}`,
         message.channel
       );
     }
@@ -56,7 +55,9 @@ module.exports = {
       .send({
         embed: {
           color: 'GREEN',
-          description: `${message.author} a passé \`${args[0] - 1}\` songs ⏭.`,
+          description: `⏭ **|** ${message.author} a passé \`${
+            args[0] - 1
+          }\` chansons de la liste.`,
         },
       })
       .catch(console.error);

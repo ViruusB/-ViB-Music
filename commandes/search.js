@@ -9,35 +9,35 @@ const fs = require('fs');
 module.exports = {
   info: {
     name: 'search',
-    description: 'Pour chercher une musique.',
-    usage: '<nom_musique>, <nom_artiste>',
-    aliases: ['sc'],
+    description: 'Pour chercher une musique',
+    usage: '<nom_de_la_chanson>, <artiste>',
+    aliases: ['sc', 'chercher', 'recherche', 'ch'],
   },
 
   run: async function (client, message, args) {
     let channel = message.member.voice.channel;
     if (!channel)
       return sendError(
-        'Je suis désolé mais vous devez être dans un canal vocal pour écouter de la musique !',
+        'Je suis désolé mais vous devez être dans un salon vocal pour écouter de la musique !',
         message.channel
       );
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT'))
       return sendError(
-        'Je ne parviens pas à me connecter à votre canal vocal, assurez-vous que je dispose des autorisations appropriées !',
+        'Je ne parviens pas à me connecter à votre salon vocal, assurez-vous que je dispose des autorisations appropriées !',
         message.channel
       );
     if (!permissions.has('SPEAK'))
       return sendError(
-        "Je ne peux pas parler dans ce canal vocal, assurez-vous que j'ai les autorisations appropriées !",
+        "Je ne peux pas parler dans ce salon vocal, assurez-vous que j'ai les autorisations appropriées !",
         message.channel
       );
 
     var searchString = args.join(' ');
     if (!searchString)
       return sendError(
-        'Donne moi plus de détail, un titre ou un artiste',
+        'Il me faut plus de détails: Nom de la musique, Artiste ou YouTube URL',
         message.channel
       );
 
@@ -46,12 +46,12 @@ module.exports = {
       var searched = await YouTube.search(searchString, { limit: 10 });
       if (searched[0] == undefined)
         return sendError(
-          "Il semble que je n'ai pas pu trouver la chanson sur YouTube",
+          "Il semble que je n'ai pas pu trouver la chanson demandée.",
           message.channel
         );
       let index = 0;
       let embedPlay = new MessageEmbed()
-        .setColor('BLUE')
+        .setColor('RANDOM')
         .setAuthor(
           `Résultat pour \"${args.join(' ')}\"`,
           message.author.displayAvatarURL()
@@ -66,9 +66,7 @@ module.exports = {
             )
             .join('\n')}`
         )
-        .setFooter(
-          "Tapez le numéro de la chanson pour l'ajouter à la playlist"
-        );
+        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file");
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
@@ -124,11 +122,11 @@ module.exports = {
       serverQueue.songs.push(song);
       let thing = new MessageEmbed()
         .setAuthor(
-          'Chanson ajoutée à la liste',
+          'Musique ajoutée à la liste',
           'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
         )
         .setThumbnail(song.img)
-        .setColor('YELLOW')
+        .setColor('RANDOM')
         .addField('Nom', song.title, true)
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
@@ -152,7 +150,7 @@ module.exports = {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
         sendError(
-          "Aucune musiques n'a été trouvée dans la file d'attente de la playlist.\n Ajouter de la musique encore et encore 24h/24 7j/7\n\n Merci d'utiliser Poseidon !",
+          "Aucune musiques en attente n'a été trouvées.\n Veuillez ajouter de la musique.",
           message.channel
         );
         message.guild.me.voice.channel.leave();
@@ -168,7 +166,7 @@ module.exports = {
               queue.songs.shift();
               play(queue.songs[0]);
               return sendError(
-                `Une erreur inattendue est survenue.\nType Possible \`${er}\``,
+                `Une erreur inattendue est survenue.\nType \`${er}\``,
                 message.channel
               );
             }
@@ -202,7 +200,7 @@ module.exports = {
           'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
         )
         .setThumbnail(song.img)
-        .setColor('BLUE')
+        .setColor('RANDOM')
         .addField('Nom', song.title, true)
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
@@ -216,11 +214,11 @@ module.exports = {
       channel.guild.voice.setSelfDeaf(true);
       play(queueConstruct.songs[0]);
     } catch (error) {
-      console.error(`Je n'ai pas pu rejoindre le canal vocal: ${error}`);
+      console.error(`Je n'ai pas pu rejoindre le salon vocal: ${error}`);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
       return sendError(
-        `Je n'ai pas pu rejoindre le canal vocal: ${error}`,
+        `Je n'ai pas pu rejoindre le salon vocal: ${error}`,
         message.channel
       );
     }

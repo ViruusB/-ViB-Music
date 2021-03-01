@@ -6,25 +6,26 @@ module.exports = {
   info: {
     name: 'lyrics',
     description: 'Obtenir les paroles de la chanson en cours de lecture',
-    usage: '[lyrics]',
-    aliases: ['ly'],
+    usage: '',
+    aliases: ['parole', 'paroles', 'ly', 'pa'],
   },
 
   run: async function (client, message, args) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue)
-      return sendError("Il n'y a rien qui joue.", message.channel).catch(
-        console.error
-      );
+      return sendError(
+        "Il n'y a aucune musique qui joue actuellement.",
+        message.channel
+      ).catch(console.error);
 
     let lyrics = null;
 
     try {
       lyrics = await lyricsFinder(queue.songs[0].title, '');
       if (!lyrics)
-        lyrics = `Aucune lyrics trouvée pour ${queue.songs[0].title}.`;
+        lyrics = `Aucune paroles trouvées pour \`\`${queue.songs[0].title}.\`\``;
     } catch (error) {
-      lyrics = `Aucune lyrics trouvée pour ${queue.songs[0].title}.`;
+      lyrics = `Aucune paroles trouvées pour \`\`${queue.songs[0].title}.\`\``;
     }
 
     let lyricsEmbed = new MessageEmbed()

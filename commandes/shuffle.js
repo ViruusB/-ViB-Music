@@ -4,18 +4,17 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'shuffle',
-    description: "Mélanger la file d'attente.",
-    usage: '[shuffle]',
-    aliases: ['shuffle'],
+    description: 'Passer en lecture aléatoire',
+    usage: '',
+    aliases: ['shuffle', 'melanger', 'aleatoire'],
   },
 
   run: async function (client, message, args) {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue)
-      return sendError(
-        "Il n'y a pas de file d'attente.",
-        message.channel
-      ).catch(console.error);
+      return sendError('Aucune chanson est en attente.', message.channel).catch(
+        console.error
+      );
     try {
       let songs = serverQueue.songs;
       for (let i = songs.length - 1; i > 1; i--) {
@@ -29,7 +28,7 @@ module.exports = {
       message.guild.me.voice.channel.leave();
       message.client.queue.delete(message.guild.id);
       return sendError(
-        `:notes: L'utilisateur a arrêté et la file d'attente a été effacée.: \`${error}\``,
+        `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: \`${error}\``,
         message.channel
       );
     }

@@ -8,35 +8,35 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'play',
-    description: 'Lance la chanson',
+    description: 'Lecture de la chanson',
     usage: '<YouTube_URL> | <nom_de_la_chanson> | <artiste>',
-    aliases: ['p'],
+    aliases: ['p', 'lecture'],
   },
 
   run: async function (client, message, args) {
     let channel = message.member.voice.channel;
     if (!channel)
       return sendError(
-        'Je suis désolé mais vous devez être dans un canal vocal pour écouter de la musique !',
+        'Je suis désolé mais vous devez être dans un salon vocal pour écouter de la musique !',
         message.channel
       );
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT'))
       return sendError(
-        "Je ne parviens pas à me connecter à votre canal vocal, assurez-vous que j'ai les autorisations appropriées !",
+        "Je ne parviens pas à me connecter à votre salon vocal, assurez-vous que j'ai les autorisations appropriées !",
         message.channel
       );
     if (!permissions.has('SPEAK'))
       return sendError(
-        "Je ne peux pas parler dans ce canal vocal, assurez-vous que j'ai les autorisations appropriées !",
+        "Je ne peux pas parler dans ce salon vocal, assurez-vous que j'ai les autorisations appropriées !",
         message.channel
       );
 
     var searchString = args.join(' ');
     if (!searchString)
       return sendError(
-        'Il me faut plus de détail, nom de la musique, artiste ou YouTube URL',
+        'Il me faut plus de détails: Nom de la musique, Artiste ou YouTube URL',
         message.channel
       );
     const url = args[0] ? args[0].replace(/<(.+)>/g, '$1') : '';
@@ -51,7 +51,7 @@ module.exports = {
         songInfo = await ytdl.getInfo(url);
         if (!songInfo)
           return sendError(
-            "Il semble que je n'ai pas pu trouver la chanson sur YouTube",
+            "Il semble que je n'ai pas pu trouver la chanson demandée.",
             message.channel
           );
         song = {
@@ -74,7 +74,7 @@ module.exports = {
         var searched = await yts.search(searchString);
         if (searched.videos.length === 0)
           return sendError(
-            "Il semble que je n'ai pas pu trouver la chanson sur YouTube",
+            "Il semble que je n'ai pas pu trouver la chanson demandée.",
             message.channel
           );
 
@@ -99,11 +99,11 @@ module.exports = {
       serverQueue.songs.push(song);
       let thing = new MessageEmbed()
         .setAuthor(
-          'La musique a été ajouté à la liste',
+          'Musique ajoutée à la liste',
           'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
         )
         .setThumbnail(song.img)
-        .setColor('YELLOW')
+        .setColor('RANDOM')
         .addField('Nom', song.title, true)
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
@@ -127,7 +127,7 @@ module.exports = {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
         sendError(
-          "Aucune musiques n'a été trouvée dans la file d'attente de la playlist.\n Ajouter de la musique encore et encore 24h/24 7j/7\n\n Merci d'utiliser Poseidon !",
+          "Aucune musiques en attente n'a été trouvées.\n Veuillez ajouter de la musique.",
           message.channel
         );
         message.guild.me.voice.channel.leave();
@@ -143,7 +143,7 @@ module.exports = {
               queue.songs.shift();
               play(queue.songs[0]);
               return sendError(
-                `Une erreur inattendue est survenue.\nType Possible \`${er}\``,
+                `Une erreur inattendue est survenue.\nType \`${er}\``,
                 message.channel
               );
             }
@@ -173,11 +173,11 @@ module.exports = {
       dispatcher.setVolumeLogarithmic(queue.volume / 100);
       let thing = new MessageEmbed()
         .setAuthor(
-          'Lancement de la musique !',
+          'Lancement de la musique',
           'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
         )
         .setThumbnail(song.img)
-        .setColor('BLUE')
+        .setColor('RANDOM')
         .addField('Nom', song.title, true)
         .addField('Durée', song.duration, true)
         .addField('Demandé par', song.req.tag, true)
@@ -190,11 +190,11 @@ module.exports = {
       queueConstruct.connection = connection;
       play(queueConstruct.songs[0]);
     } catch (error) {
-      console.error(`Je n'ai pas pu rejoindre le canal vocal: ${error}`);
+      console.error(`Je n'ai pas pu rejoindre le salon vocal: ${error}`);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
       return sendError(
-        `Je n'ai pas pu rejoindre le canal vocal: ${error}`,
+        `Je n'ai pas pu rejoindre le salon vocal: ${error}`,
         message.channel
       );
     }

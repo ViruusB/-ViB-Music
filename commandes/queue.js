@@ -4,9 +4,9 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'queue',
-    description: "Pour afficher la file d'attente des chansons.",
+    description: 'Pour afficher la liste des chansons en attente',
     usage: '',
-    aliases: ['q', 'list', 'songlist', 'song-list'],
+    aliases: ['q', 'list', 'songlist', 'liste'],
   },
 
   run: async function (client, message, args) {
@@ -20,7 +20,7 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue)
       return sendError(
-        "Il n'y a rien qui joue sur ce serveur.",
+        "Il n'y a aucune musique qui joue actuellement.",
         message.channel
       );
 
@@ -95,23 +95,19 @@ function generateQueueEmbed(message, queue) {
     const serverQueue = message.client.queue.get(message.guild.id);
     const embed = new MessageEmbed()
       .setAuthor(
-        "File d'attente",
+        'Liste musicale en cour',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setThumbnail(message.guild.iconURL())
       .setColor('BLUE')
       .setDescription(`${info}`)
-      .addField(
-        'Joue actuellement',
-        `[${queue[0].title}](${queue[0].url})`,
-        true
-      )
-      .addField('Channel Texte', serverQueue.textChannel, true)
-      .addField('Channel Vocal', serverQueue.voiceChannel, true)
+      .addField('Lecture en cour', `[${queue[0].title}](${queue[0].url})`, true)
+      .addField('Salon Texte', serverQueue.textChannel, true)
+      .addField('Salon Vocal', serverQueue.voiceChannel, true)
       .setFooter('Le volume actuel est de: ' + serverQueue.volume);
     if (serverQueue.songs.length === 1)
       embed.setDescription(
-        `Aucune chanson à lire dans la file d'attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``
+        `Aucune chanson est en attente. \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``
       );
 
     embeds.push(embed);

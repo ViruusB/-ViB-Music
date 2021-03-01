@@ -4,9 +4,9 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'pause',
-    description: 'Pour mettre en pause la musique actuelle.',
-    usage: '[pause]',
-    aliases: ['pause'],
+    description: 'Pour mettre la musique actuelle en pause',
+    usage: '',
+    aliases: ['pause', 'pau'],
   },
 
   run: async function (client, message, args) {
@@ -18,16 +18,21 @@ module.exports = {
       } catch (error) {
         message.client.queue.delete(message.guild.id);
         return sendError(
-          `:notes: L'utilisateur a arrété et la file d'attente a été effacée.: ${error}`,
+          `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: ${error}`,
           message.channel
         );
       }
       let xd = new MessageEmbed()
-        .setDescription('⏸ La musique a été mis en pause !')
+        .setDescription('⏸ | La musique a été mis en pause !')
         .setColor('YELLOW')
-        .setTitle('La musique est en Pause !');
+        .setAuthor(
+          'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+        );
       return message.channel.send(xd);
     }
-    return sendError("Il n'y a rien qui joue sur ce serveur.", message.channel);
+    return sendError(
+      "Il n'y a aucune musique qui joue actuellement.",
+      message.channel
+    );
   },
 };

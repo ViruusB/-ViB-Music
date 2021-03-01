@@ -5,8 +5,7 @@ module.exports = async (client) => {
       `${client.guilds.cache
         .map((g) => g.memberCount)
         .reduce((a, b) => a + b)} utilisateurs`,
-      'Music',
-      `${client.guilds.cache.size.toString()} serveurs`,
+      'PoseidonMusic',
     ],
     i = 0;
 
