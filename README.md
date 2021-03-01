@@ -20,11 +20,12 @@
 -> Modification & Commande de !skip en [FR & EN] avec Alias
 -> Modification & Commande de !skipto en [FR & EN] avec Alias
 -> Modification & Commande de !volume en [FR & EN avec Alias
+-> Ajout de la fonction !reload avec notification de Redémarrage du Bot.
 
 # En cour de modification
 
 -> Rename total du bot.
--> Ajouter (Redemarrage du Bot)
+-> Rendre le !reload privé.
 
 # PoseidonBotDiscord
 
