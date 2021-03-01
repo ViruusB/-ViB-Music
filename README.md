@@ -24,6 +24,7 @@
 # En cour de modification
 
 -> Rename total du bot.
+-> Ajouter (Redemarrage du Bot)
 
 # PoseidonBotDiscord
 

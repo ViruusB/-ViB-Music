@@ -1,5 +1,8 @@
 module.exports = async (client) => {
   console.log(`[API] ${client.user.username} connecté !`);
+  client.channels.cache
+    .get('715930615173611567')
+    .send('⚙️ | Poseidon est en ligne !');
   let activities = [
       '!help',
       `${client.guilds.cache
