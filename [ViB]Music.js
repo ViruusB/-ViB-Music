@@ -18,6 +18,23 @@ fs.readdir(__dirname + '/events/', (err, files) => {
     client.on(eventName, event.bind(null, client));
     console.log('Chargement de Event: ' + eventName);
   });
+  console.log(
+    `Nombre d'événements chargées ! Total: ${files.length}/${files.length}`
+  );
+});
+
+fs.readdir('./commandes/Info/', (err, files) => {
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    if (!file.endsWith('.js')) return;
+    let props = require(`./commandes/Info/${file}`);
+    let commandName = file.split('.')[0];
+    client.commands.set(commandName, props);
+    console.log(`Chargement de la Commande: ${commandName}`);
+  });
+  console.log(
+    `Nombre de commandes "Info" chargées ! Total: ${files.length}/${files.length}`
+  );
 });
 
 fs.readdir('./commandes/Music/', (err, files) => {
