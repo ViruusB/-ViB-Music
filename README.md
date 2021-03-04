@@ -1,5 +1,7 @@
 ©ViruusB
 
+Invitation Bot: https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot
+
 # MAJ 01/03/2021 | 03/01/2021
 
 -> Modification de l'activité du Bot [Retrait du nombre de serveurs]
