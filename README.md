@@ -5,7 +5,7 @@ Invitation Bot: https://discord.com/oauth2/authorize?client_id=74982325412613331
 # LAST UPDATE
 
 -> Ajout de nouveaux dossiers.
--> Ajout de la commande !ping (non visible dans le !help)
+-> Ajout de la commande !ping
 -> Update [ViB]Music.js
 
 # UPDATE 01/03/2021 | 03/01/2021
