@@ -29,7 +29,7 @@ Invitation Bot: https://discord.com/oauth2/authorize?client_id=74982325412613331
 -> Modification & Commande de !skip avec Alias [FR & EN]
 -> Modification & Commande de !skipto avec Alias [FR & EN]
 -> Modification & Commande de !volume avec Alias [FR & EN]
--> Ajout de la notification du bot en ligne [ :gear: ]
+-> Ajout de la notification du bot en ligne [ Modifier l'ID du channel dans ready.js ]
 -> Restructuration des Dossiers/Fichiers
 -> Modification des Assets.
 -> Update du Bot en 2.0
