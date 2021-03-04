@@ -2,7 +2,13 @@
 
 Invitation Bot: https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot
 
-# MAJ 01/03/2021 | 03/01/2021
+# LAST UPDATE
+
+-> Ajout de nouveaux dossiers.
+-> Ajout de la commande !ping (non visible dans le !help)
+-> Update [ViB]Music.js
+
+# UPDATE 01/03/2021 | 03/01/2021
 
 -> Modification de l'activité du Bot [Retrait du nombre de serveurs]
 -> Ajout en [API] sur combien de serveurs est le Bot
@@ -28,9 +34,10 @@ Invitation Bot: https://discord.com/oauth2/authorize?client_id=74982325412613331
 -> Modification des Assets.
 -> Update du Bot en 2.0
 
-# En cour de modification
+# Prochainement
 
--> Forcer les commandes sur le salon #command-music
+-> Forcer les commandes sur le salon spécifié.
+-> Update du bot en 2.5.
 
 # [ViB]MusicBotDiscord
 
