@@ -2,12 +2,6 @@
 
 Invitation Bot: https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot
 
-# LAST UPDATE
-
--> Ajout de nouveaux dossiers.  
--> Ajout de la commande !ping  
--> Update [ViB]Music.js
-
 # UPDATE 01/03/2021 | 03/01/2021
 
 -> Modification de l'activité du Bot [Retrait du nombre de serveurs]  
@@ -50,5 +44,4 @@ npm install / npm i -> Installation des modules nécessaire et de votre package.
 TOKEN -> Déjà programmé pour l'hebergement sur Heroku  
 PREFIX -> Déjà programmé pour l'hebergement sur Heroku
 
-©ViruusB  
-
+©ViruusB
