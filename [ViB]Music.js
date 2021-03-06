@@ -23,31 +23,17 @@ fs.readdir(__dirname + '/events/', (err, files) => {
   );
 });
 
-fs.readdir('./commandes/Info/', (err, files) => {
+fs.readdir('./commandes/', (err, files) => {
   if (err) return console.error(err);
   files.forEach((file) => {
     if (!file.endsWith('.js')) return;
-    let props = require(`./commandes/Info/${file}`);
+    let props = require(`./commandes/${file}`);
     let commandName = file.split('.')[0];
     client.commands.set(commandName, props);
     console.log(`Chargement de la Commande: ${commandName}`);
   });
   console.log(
-    `Nombre de commandes "Info" chargées ! Total: ${files.length}/${files.length}`
-  );
-});
-
-fs.readdir('./commandes/Music/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach((file) => {
-    if (!file.endsWith('.js')) return;
-    let props = require(`./commandes/Music/${file}`);
-    let commandName = file.split('.')[0];
-    client.commands.set(commandName, props);
-    console.log(`Chargement de la Commande: ${commandName}`);
-  });
-  console.log(
-    `Nombre de commandes "Music" chargées ! Total: ${files.length}/${files.length}`
+    `Nombre de commandes chargées ! Total: ${files.length}/${files.length}`
   );
 });
 
