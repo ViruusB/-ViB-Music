@@ -3,9 +3,7 @@ module.exports = async (client) => {
   console.log(
     `[API] ${client.user.username} est en ligne sur ${client.guilds.cache.size} serveur !`
   );
-  client.channels.cache
-    .get('749855316543537163')
-    .send('⚙️ | [ViB]Music est en ligne !');
+  client.channels.cache;
   let activities = [
       '!help',
       `${client.guilds.cache
