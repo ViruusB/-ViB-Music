@@ -1,6 +1,18 @@
 ©ViruusB
 
-Invitation Bot: https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot
+Invitation Bot: [Lien d'invitation |CLIQUE|](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)
+
+# [ViB]MusicBotDiscord
+
+[ViB]Music est un bot musical discord simple 🎧  
+Sans utilisation de API YouTube
+
+## Installation
+
+npm i -> Installation des modules nécessaire et de votre package.
+
+TOKEN -> Déjà programmé pour l'hebergement sur Heroku à modifier dans le .env  
+PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env
 
 # UPDATE 01/03/2021 | 03/01/2021
 
@@ -32,16 +44,5 @@ Invitation Bot: https://discord.com/oauth2/authorize?client_id=74982325412613331
 
 -> Forcer les commandes sur un salon spécifié.  
 -> Update du bot en 2.5.
-
-# [ViB]MusicBotDiscord
-
-[ViB]Music est un bot musical discord simple 🎧
-
-## Installation
-
-npm install / npm i -> Installation des modules nécessaire et de votre package.
-
-TOKEN -> Déjà programmé pour l'hebergement sur Heroku  
-PREFIX -> Déjà programmé pour l'hebergement sur Heroku
 
 ©ViruusB
