@@ -17,6 +17,7 @@ module.exports = {
         message.channel
       );
     let song = serverQueue.songs[0];
+    dispatcher.setVolumeLogarithmic(queue.volume / 100);
     let thing = new MessageEmbed()
       .setAuthor(
         'Lecture en cour',
