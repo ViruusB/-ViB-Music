@@ -49,6 +49,6 @@ Aucune API n'est à ajoutée.
 
 -> Forcer les commandes sur un salon spécifié.  
 -> Ajout du lecteur sur les embeds.  
--> Debug de la commande "nowplaying"  
+-> Debug des embeds "queue.volume"  
 
 ©ViruusB
