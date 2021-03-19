@@ -50,5 +50,6 @@ Aucune API n'est à ajoutée.
 -> Forcer les commandes sur un salon spécifié.  
 -> Ajout du lecteur sur les embeds.  
 -> Debug des embeds "queue.volume"  
+-> Ajout de l'utilisation OWNER sur certaines commandes.  
 
 ©ViruusB
