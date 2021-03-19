@@ -25,9 +25,9 @@ module.exports = {
       .setThumbnail(song.img)
       .setColor('RANDOM')
       .addField('Nom', song.title, '\n')
-      .addField('Durée', song.duration, true)
-      .addField('Demandé par', song.req.tag, true)
-      .setFooter(`Vues sur YouTube: ${song.views} | Année: ${song.ago}`);
+      .addField('Durée', ':stopwatch: ' + song.duration, true)
+      .addField('Volume', ':loud_sound: ' + queue.volume, true)
+      .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Par: ${song.req.tag}`);
     return message.channel.send(thing);
   },
 };

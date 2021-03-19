@@ -4,15 +4,20 @@ Invitation Bot: [Lien d'invitation |CLIQUE|](https://discord.com/oauth2/authoriz
 
 # [ViB]MusicBotDiscord
 
-[ViB]Music est un bot musical discord simple 🎧  
-Sans utilisation de API YouTube
+[ViB]Music est un bot musical discord 🎧  
 
 ## Installation
 
 npm i -> Installation des modules nécessaire et de votre package.
 
 TOKEN -> Déjà programmé pour l'hebergement sur Heroku à modifier dans le .env  
-PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env
+PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env  
+
+Aucune API n'est à ajoutée.  
+
+# UPDATE 19/03/2021 | 03/19/2021  
+  
+-> Ajout de détail + épuration sur les embed de lecture  
 
 # UPDATE 01/03/2021 | 03/01/2021
 
@@ -43,6 +48,6 @@ PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .e
 # Prochainement
 
 -> Forcer les commandes sur un salon spécifié.  
--> Update du bot en 2.5.
+-> Ajout du lecteur sur les embeds.  
 
 ©ViruusB

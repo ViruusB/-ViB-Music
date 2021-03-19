@@ -28,6 +28,7 @@ module.exports = {
         message.channel
       );
     if (!args[0])
+    if (!args[0])
       return message.channel.send(
         `\`\`Le volume actuel est de:\`\` **${serverQueue.volume} :loud_sound: **`
       );
