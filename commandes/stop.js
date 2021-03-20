@@ -6,7 +6,7 @@ module.exports = {
     name: 'stop',
     description: "Pour arrêter la musique et effacer la file d'attente",
     usage: '',
-    aliases: [],
+    aliases: ['arret', 'sp'],
   },
 
   run: async function (client, message, args) {

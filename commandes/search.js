@@ -70,7 +70,7 @@ module.exports = {
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
-          timeout: 15000,
+          timeout: 30000,
         })
       );
       try {
@@ -78,7 +78,7 @@ module.exports = {
           (message2) => message2.content > 0 && message2.content < 11,
           {
             max: 1,
-            time: 20000,
+            time: 60000,
             errors: ['time'],
           }
         );
@@ -88,7 +88,7 @@ module.exports = {
           embed: {
             color: 'RED',
             description:
-              "Rien n'a été sélectionné dans les 20 secondes, la demande a été annulée.",
+              "Rien n'a été sélectionné dans les 60 secondes, la demande a été annulée.",
           },
         });
       }
