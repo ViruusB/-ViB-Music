@@ -4,6 +4,7 @@ const ytdlDiscord = require('ytdl-core-discord');
 const yts = require('yt-search');
 const fs = require('fs');
 const sendError = require('../util/error');
+const queue = require('./queue');
 
 module.exports = {
   info: {
@@ -106,8 +107,8 @@ module.exports = {
         .setColor('RANDOM')
         .addField('Nom', song.title, '\n')
         .addField('Durée', ':stopwatch: ' + song.duration, true)
-        .addField('Volume', ':loud_sound: ' + queue.volume, true)
-        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Par: ${song.req.tag}`);
+        .addField('Volume', ':loud_sound: ' + serverQueue.volume, true)
+        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Ajouté: ${song.req.tag}`);
       return message.channel.send(thing);
     }
 
@@ -181,10 +182,9 @@ module.exports = {
         .addField('Nom', song.title, '\n')
         .addField('Durée', ':stopwatch: ' + song.duration, true)
         .addField('Volume', ':loud_sound: ' + queue.volume, true)
-        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Par: ${song.req.tag}`);
+        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Ajouté: ${song.req.tag}`);
       queue.textChannel.send(thing);
     };
-
     try {
       const connection = await channel.join();
       queueConstruct.connection = connection;
@@ -197,6 +197,6 @@ module.exports = {
         `Je n'ai pas pu rejoindre le salon vocal: ${error}`,
         message.channel
       );
+      }
     }
-  },
-};
+  }

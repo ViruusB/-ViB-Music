@@ -44,7 +44,7 @@ module.exports = {
     serverQueue.volume = args[0];
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
     let xd = new MessageEmbed()
-      .setDescription(`Volume réglé sur: **${args[0] / 1} :loud_sound: **`)
+      .setDescription(`Volume réglé sur: \`\`${args[0] / 1}\`\` :loud_sound:`)
       .setAuthor(
         'Volume',
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'

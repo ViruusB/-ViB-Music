@@ -32,7 +32,7 @@ module.exports = {
       .setColor('BLUE')
       .setDescription(allcmds)
       .setFooter(
-        `Pour obtenir des informations sur chaque commandes, vous pouvez faire ${client.config.prefix}help [nom_de_la_commande]`
+        `Pour obtenir des informations sur chaque commandes, vous pouvez utiliser ${client.config.prefix}help [nom_de_la_commande]\nExemple: ${client.config.prefix}help play`
       );
 
     if (!args[0]) return message.channel.send(embed);

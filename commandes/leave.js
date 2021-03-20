@@ -4,12 +4,14 @@ const sendError = require('../util/error');
 module.exports = {
   info: {
     name: 'leave',
-    description: 'Quitter le salon vocal',
+    description: 'Quitter le Bot du salon vocal',
     usage: '',
     aliases: ['quitter', 'l', 'deco', 'quitte'],
   },
 
   run: async function (client, message, args) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+    return message.reply( ` tu n'as pas la permission d'utiliser la commande \`\`leave\`\``);
     let channel = message.member.voice.channel;
     if (!channel)
       return sendError(
@@ -35,7 +37,7 @@ module.exports = {
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
       .setColor('RED')
-      .setDescription(`🎶 ${client.user.username} a quitté le salon vocal.`)
+      .setDescription(`🎶 | ${client.user.username} a quitté le salon vocal.`)
       .setTimestamp();
 
     return message.channel

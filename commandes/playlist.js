@@ -146,7 +146,7 @@ module.exports = {
           .addField('Nom', song.title, '\n')
           .addField('Durée', ':stopwatch: ' + song.duration, true)
           .addField('Volume', ':loud_sound: ' + queue.volume, true)
-          .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Par: ${song.req.tag}`);
+          .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Ajouté: ${song.req.tag}`);
         return message.channel.send(thing);
       }
       return;
@@ -209,8 +209,8 @@ module.exports = {
         .setColor('RANDOM')
         .addField('Nom', song.title, '\n')
         .addField('Durée', ':stopwatch: ' + song.duration, true)
-        .addField('Volume', ':loud_sound: ' + queue.volume, true)
-        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Par: ${song.req.tag}`);
+        .addField('Volume', ':loud_sound: ' + serverQueue.volume, true)
+        .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Ajouté: ${song.req.tag}`);
       serverQueue.textChannel.send(thing);
     }
   },

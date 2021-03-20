@@ -10,6 +10,8 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+    return message.reply( ` tu n'as pas la permission d'utiliser la commande \`\`stop\`\``);
     const channel = message.member.voice.channel;
     if (!channel)
       return sendError(
@@ -30,7 +32,7 @@ module.exports = {
       message.guild.me.voice.channel.leave();
       message.client.queue.delete(message.guild.id);
       return sendError(
-        `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: ${error}`,
+        `:notes: | L'utilisateur a arrété et la liste des chansons a été effacées: ${error}`,
         message.channel
       );
     }
