@@ -66,11 +66,11 @@ module.exports = {
             )
             .join('\n')}`
         )
-        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file (60 secondes).");
+        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file (30 secondes).");
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
-          timeout: 60000,
+          timeout: 30000,
         })
       );
       try {
@@ -78,7 +78,7 @@ module.exports = {
           (message2) => message2.content > 0 && message2.content < 11,
           {
             max: 1,
-            time: 10000,
+            time: 35000,
             errors: ['time'],
           }
         );
