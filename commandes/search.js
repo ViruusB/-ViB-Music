@@ -66,11 +66,11 @@ module.exports = {
             )
             .join('\n')}`
         )
-        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file");
+        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file (60 secondes).");
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
-          timeout: 30000,
+          timeout: 15000,
         })
       );
       try {
