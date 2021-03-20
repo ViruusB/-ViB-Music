@@ -88,7 +88,7 @@ module.exports = {
           embed: {
             color: 'RED',
             description:
-              "Rien n'a été sélectionné dans les 60 secondes, la demande a été annulée.",
+              "Rien n'a été sélectionné dans les 30 secondes, la demande a été annulée.",
           },
         });
       }
