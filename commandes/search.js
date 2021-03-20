@@ -70,7 +70,7 @@ module.exports = {
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
-          timeout: 15000,
+          timeout: 60000,
         })
       );
       try {
@@ -78,7 +78,7 @@ module.exports = {
           (message2) => message2.content > 0 && message2.content < 11,
           {
             max: 1,
-            time: 60000,
+            time: 10000,
             errors: ['time'],
           }
         );
