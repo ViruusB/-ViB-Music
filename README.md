@@ -1,6 +1,6 @@
 ©ViruusB
 
-Invitation Bot: [Lien d'invitation |CLIQUE|](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)
+Invitation Bot: [Lien d'invitation |CLIQUE|](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)  
 
 # [ViB]MusicBotDiscord
 
@@ -14,6 +14,9 @@ TOKEN -> Déjà programmé pour l'hebergement sur Heroku à modifier dans le .en
 PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env  
 
 Aucune API n'est à ajoutée/remplacée  
+
+# PROBLEME EN COUR  
+-> Erreur d'hebergement, en cour de de debug.  
 
 # UPDATE 22/03/2021 | 03/22/2021  
 -> Ajout d'un message [TimeOut 3 secondes] sur toutes commandes.  
