@@ -16,7 +16,7 @@ PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .e
 Aucune API n'est à ajoutée/remplacée  
 
 # PROBLEME EN COUR  
--> Erreur d'hebergement, en cour de de debug.  
+-> Erreur d'hebergement, en cour de debug.  
 
 # UPDATE 22/03/2021 | 03/22/2021  
 -> Ajout d'un message [TimeOut 3 secondes] sur toutes commandes.  

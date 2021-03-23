@@ -19,7 +19,7 @@ module.exports = async (client, message) => {
   process.on('unhandledRejection', (reason, promise) => {
     try {
       console.error(
-        'Rejet non géré à: ',
+        'Erreur: ',
         promise,
         'Raison: ',
         reason.stack || reason
