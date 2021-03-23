@@ -33,7 +33,7 @@ fs.readdir('./commandes/', (err, files) => {
     console.log(`Chargement de la Commande: ${commandName}`);
   });
   console.log(
-    `Nombre de commandes chargées ! Total: ${files.length}/${files.length}`
+    `Nombre de commandes "MUSIC" chargées ! Total: ${files.length}/${files.length}`
   );
 });
 
