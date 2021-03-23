@@ -5,9 +5,7 @@
   "main": "[ViB]Music.js",
   "license": "MIT",
   "scripts": {
-    "start": "node [ViB]Music.js",
-    "dev": "webpack --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.build.js"
+    "start": "node [ViB]Music.js"
   },
   "engines": {
     "node": "14.x"
