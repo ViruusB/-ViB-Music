@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const fs = require('fs');
 const { Collection, Client } = require('discord.js');
 
@@ -7,7 +7,7 @@ client.commands = new Collection();
 client.queue = new Map();
 
 client.config = {
-  prefix: process.env.PREFIX,
+  prefix: process.env.PREFIX
 };
 
 fs.readdir(__dirname + '/events/', (err, files) => {
