@@ -13,6 +13,7 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.reply( ` tu n'as pas la permission d'utiliser la commande \`\`stop\`\``);
     const channel = message.member.voice.channel;
+    setTimeout(() => message.delete(), 3000);
     if (!channel)
       return sendError(
         'Je suis désolé mais vous devez être dans un salon vocal pour écouter de la musique !',

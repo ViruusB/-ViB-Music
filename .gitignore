@@ -5,6 +5,3 @@ yarn.lock
 
 # Stockage de données
 .env
-
-# JS Start Test
-music.js

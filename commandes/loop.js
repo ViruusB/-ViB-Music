@@ -13,6 +13,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue) {
       serverQueue.loop = !serverQueue.loop;
+      setTimeout(() => message.delete(), 3000);
       return message.channel.send({
         embed: {
           color: 'GREEN',

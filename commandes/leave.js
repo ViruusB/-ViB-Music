@@ -12,6 +12,7 @@ module.exports = {
   run: async function (client, message, args) {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.reply( ` tu n'as pas la permission d'utiliser la commande \`\`leave\`\``);
+    setTimeout(() => message.delete(), 3000);
     let channel = message.member.voice.channel;
     if (!channel)
       return sendError(
@@ -39,9 +40,7 @@ module.exports = {
       .setColor('RED')
       .setDescription(`🎶 | ${client.user.username} a quitté le salon vocal.`)
       .setTimestamp();
-
-    return message.channel
-      .send(Embed)
+    return message.channel.send(Embed)
       .catch(() => message.channel.send('🎶 Salon vocal quitté.'));
   },
 };

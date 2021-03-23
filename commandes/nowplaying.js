@@ -11,6 +11,7 @@ module.exports = {
 
   run: async function (client, message, args) {
     const serverQueue = message.client.queue.get(message.guild.id);
+    setTimeout(() => message.delete(), 3000);
     if (!serverQueue)
       return sendError(
         "Il n'y a aucune musique qui joue actuellement.",

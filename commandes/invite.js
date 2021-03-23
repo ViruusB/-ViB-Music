@@ -20,6 +20,7 @@ module.exports = {
         `https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${permissions}&scope=bot`
       )
       .setColor('RANDOM');
+      setTimeout(() => message.delete(), 3000);
     return message.channel.send(invite);
   },
 };

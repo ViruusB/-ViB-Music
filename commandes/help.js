@@ -34,7 +34,7 @@ module.exports = {
       .setFooter(
         `Pour obtenir des informations sur chaque commandes, vous pouvez utiliser ${client.config.prefix}help [nom_de_la_commande]\nExemple: ${client.config.prefix}help play`
       );
-
+      setTimeout(() => message.delete(), 3000);
     if (!args[0]) return message.channel.send(embed);
     else {
       let cmd = args[0];

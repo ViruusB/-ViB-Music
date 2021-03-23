@@ -11,6 +11,7 @@ module.exports = {
 
   run: async function (client, message, args) {
     const permissions = message.channel.permissionsFor(message.client.user);
+    setTimeout(() => message.delete(), 3000);
     if (!permissions.has(['MANAGE_MESSAGES', 'ADD_REACTIONS']))
       return sendError(
         "Il manque l'autorisation de gérer les messages ou d'ajouter des réactions",

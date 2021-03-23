@@ -16,6 +16,7 @@ module.exports = {
 
   run: async function (client, message, args) {
     const channel = message.member.voice.channel;
+    setTimeout(() => message.delete(), 3000);
     if (!channel)
       return sendError(
         'Je suis désolé mais vous devez être dans un salon vocal pour écouter de la musique !',

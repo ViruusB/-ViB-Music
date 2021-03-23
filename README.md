@@ -15,7 +15,10 @@ PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .e
 
 Aucune API n'est à ajoutée/remplacée  
 
-# UPDATE 20/03/2021 | 20/19/2021  
+# UPDATE 22/03/2021 | 03/22/2021  
+-> Ajout d'un message [TimeOut 3 secondes] sur toutes commandes.  
+  
+# UPDATE 20/03/2021 | 03/20/2021  
 -> Ajout de détail + épuration sur les [EMBEDS] de lecture  
 -> Debug de certains [EMBEDS] empêchant leurs apparition.  
 -> Ajout de l'utilisation [MANAGE_MESSAGES] sur [STOP & LEAVE]  
@@ -31,6 +34,5 @@ Aucune API n'est à ajoutée/remplacée
 # Prochainement  
 -> Forcer les commandes sur un salon spécifié.  
 -> Ajout du lecteur sur les embeds.  
--> Ajout d'un [SET PREFIX]  
 
 ©ViruusB
