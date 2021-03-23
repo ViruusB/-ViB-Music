@@ -7,8 +7,7 @@ client.commands = new Collection();
 client.queue = new Map();
 
 client.config = {
-  prefix: process.env.PREFIX,
-  debug: process.env.DEBUG
+  prefix: process.env.PREFIX
 };
 
 fs.readdir(__dirname + '/events/', (err, files) => {
