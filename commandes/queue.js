@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const sendError = require('../util/error');
+const util = require("../util/pagination");
 
 module.exports = {
   info: {
@@ -25,98 +26,27 @@ module.exports = {
         message.channel
       );
 
-    let currentPage = 0;
-    const embeds = generateQueueEmbed(message, queue.songs);
+    const que = queue.songs.map((t, i) => `\`${++i}.\` | [\`${t.title}\`](${t.url}) - [<@${t.req.id}>]`);
 
-    const queueEmbed = await message.channel.send(
-      `**\`${currentPage + 1}\`**/**\`${embeds.length}\`**`,
-      embeds[currentPage]
-    );
+    const chunked = util.chunk(que, 10).map((x) => x.join("\n"));
 
-    try {
-      await queueEmbed.react('⬅️');
-      await queueEmbed.react('🛑');
-      await queueEmbed.react('➡️');
-    } catch (error) {
-      console.error(error);
-      message.channel.send(error.message).catch(console.error);
-    }
-
-    const filter = (reaction, user) =>
-      ['⬅️', '🛑', '➡️'].includes(reaction.emoji.name) &&
-      message.author.id === user.id;
-    const collector = queueEmbed.createReactionCollector(filter, {
-      time: 60000,
-    });
-
-    collector.on('collect', async (reaction, user) => {
-      try {
-        if (reaction.emoji.name === '➡️') {
-          if (currentPage < embeds.length - 1) {
-            currentPage++;
-            queueEmbed.edit(
-              `**\`${currentPage + 1}\`**/**${embeds.length}**`,
-              embeds[currentPage]
-            );
-          }
-        } else if (reaction.emoji.name === '⬅️') {
-          if (currentPage !== 0) {
-            --currentPage;
-            queueEmbed.edit(
-              `**\`${currentPage + 1}\`**/**${embeds.length}**`,
-              embeds[currentPage]
-            );
-          }
-        } else {
-          collector.stop();
-          reaction.message.reactions.removeAll();
-        }
-        await reaction.users.remove(message.author.id);
-      } catch (error) {
-        console.error(error);
-        return message.channel.send(error.message).catch(console.error);
-      }
-    });
-  },
-};
-
-function generateQueueEmbed(message, queue) {
-  let embeds = [];
-  let k = 10;
-
-  for (let i = 0; i < queue.length; i += 10) {
-    const current = queue.slice(i, k);
-    let j = i;
-    k += 10;
-
-    const info = current
-      .map((track) => `**\`${++j}\`** | [\`${track.title}\`](${track.url})`)
-      .join('\n');
-
-    const serverQueue = message.client.queue.get(message.guild.id);
     const embed = new MessageEmbed()
-      .setAuthor(
-        'Liste des Musiques',
-        'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
-      )
-      .setThumbnail(message.guild.iconURL())
-      .setColor('BLUE')
-      .setDescription(`${info}`)
-      .addField(
-        'Lecture en cour',
-        `[${queue[0].title}](${queue[0].url})`,
-        '\n'
-      )
-      .addField('Salon Texte', serverQueue.textChannel, true)
-      .addField('Salon Vocal', serverQueue.voiceChannel, true)
-      .addField('Volume :loud_sound:', serverQueue.volume, true)
-    if (serverQueue.songs.length === 1)
-      embed.setDescription(
-        `Aucune chanson est en attente. \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``
-      );
+    .setAuthor("Liste des Musiques", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+    .setThumbnail(message.guild.iconURL())
+    .setColor("RANDOM")
+    .setDescription(chunked[0])
+    .addField("Lecture en cour", `[${queue.songs[0].title}](${queue.songs[0].url})`, true)
+    .addField("Salon Texte", queue.textChannel, true)
+    .addField("Salon Vocal", queue.voiceChannel, true)
+    .addField('Volume :loud_sound:', queue.volume, true)
+    .setFooter(`Page 1 sur ${chunked.length}.`);
+if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
 
-    embeds.push(embed);
-  }
-
-  return embeds;
+try {
+    const queueMsg = await message.channel.send(embed);
+    if (chunked.length > 1) await util.pagination(queueMsg, message.author, chunked);
+} catch (e) {
+    msg.channel.send(`Une erreur s'est produite: ${e.message}.`);
 }
+},
+};

@@ -5,6 +5,7 @@ const yts = require('yt-search');
 const fs = require('fs');
 const sendError = require('../util/error');
 const queue = require('./queue');
+const scdl = require("soundcloud-downloader").default;
 
 module.exports = {
   info: {
@@ -71,6 +72,24 @@ module.exports = {
         console.error(error);
         return message.reply(error.message).catch(console.error);
       }
+    } else if (url.match(/^https?:\/\/(soundcloud\.com)\/(.*)$/gi)) {
+      try {
+          songInfo = await scdl.getInfo(url);
+          if (!songInfo) return sendError("Il semble que je n'ai pas pu trouver la chanson sur SoundCloud", message.channel);
+          song = {
+              id: songInfo.permalink,
+              title: songInfo.title,
+              url: songInfo.permalink_url,
+              img: songInfo.artwork_url,
+              ago: songInfo.last_modified,
+              views: String(songInfo.playback_count).padStart(10, " "),
+              duration: Math.ceil(songInfo.duration / 1000),
+              req: message.author,
+          };
+      } catch (error) {
+          console.error(error);
+          return sendError(error.message, message.channel).catch(console.error);
+      }
     } else {
       try {
         var searched = await yts.search(searchString);
@@ -136,8 +155,17 @@ module.exports = {
         message.client.queue.delete(message.guild.id);
         return;
       }
-      let stream = null;
-      if (song.url.includes('youtube.com')) {
+      let stream;
+      let streamType;
+      try {
+        if (song.url.includes("soundcloud.com")) {
+            try {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, client.config.SOUNDCLOUD);
+            } catch (error) {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.MP3, client.config.SOUNDCLOUD);
+                streamType = "unknown";
+            }
+          } else if (song.url.includes('youtube.com')) {
         stream = await ytdl(song.url);
         stream.on('error', function (er) {
           if (er) {
@@ -152,25 +180,20 @@ module.exports = {
           }
         });
       }
-      queue.connection.on('disconnect', () =>
-        message.client.queue.delete(message.guild.id)
-      );
-
-      const dispatcher = queue.connection
-        .play(
-          ytdl(song.url, {
-            quality: 'highestaudio',
-            highWaterMark: 1 << 25,
-            type: 'opus',
-          })
-        )
-        .on('finish', () => {
-          const shiffed = queue.songs.shift();
-          if (queue.loop === true) {
-            queue.songs.push(shiffed);
-          }
+    } catch (error) {
+      if (queue) {
+          queue.songs.shift();
           play(queue.songs[0]);
-        });
+      }
+  }
+  queue.connection.on("disconnect", () => message.client.queue.delete(message.guild.id));
+  const dispatcher = queue.connection.play(stream, { type: streamType }).on("finish", () => {
+      const shiffed = queue.songs.shift();
+      if (queue.loop === true) {
+          queue.songs.push(shiffed);
+      }
+      play(queue.songs[0]);
+  });
 
       dispatcher.setVolumeLogarithmic(queue.volume / 100);
       let thing = new MessageEmbed()

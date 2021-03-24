@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const lyricsFinder = require('lyrics-finder');
 const sendError = require('../util/error');
+const splitlyrics = require("../util/pagination");
 
 module.exports = {
   info: {
@@ -28,6 +29,7 @@ module.exports = {
     } catch (error) {
       lyrics = `Aucune paroles trouvées pour \`\`${queue.songs[0].title}.\`\``;
     }
+    const splittedLyrics = splitlyrics.chunk(lyrics, 1024);
 
     let lyricsEmbed = new MessageEmbed()
       .setAuthor(
@@ -36,11 +38,11 @@ module.exports = {
       )
       .setThumbnail(queue.songs[0].img)
       .setColor('YELLOW')
-      .setDescription(lyrics)
+      .setDescription(splittedLyrics[0])
+      .setFooter(`Page 1 sur ${splittedLyrics.length}.`)
       .setTimestamp();
 
-    if (lyricsEmbed.description.length >= 2048)
-      lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
-    return message.channel.send(lyricsEmbed).catch(console.error);
+      const lyricsMsg = await message.channel.send(lyricsEmbed);
+      if (splittedLyrics.length > 1) await splitlyrics.pagination(lyricsMsg, message.author, splittedLyrics);
   },
 };

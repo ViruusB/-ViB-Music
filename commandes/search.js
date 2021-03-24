@@ -5,6 +5,7 @@ const ytdlDiscord = require('ytdl-core-discord');
 const YouTube = require('youtube-sr');
 const sendError = require('../util/error');
 const fs = require('fs');
+const scdl = require("soundcloud-downloader").default;
 
 module.exports = {
   info: {
@@ -158,8 +159,18 @@ module.exports = {
         message.client.queue.delete(message.guild.id);
         return;
       }
-      let stream = null;
-      if (song.url.includes('youtube.com')) {
+      let stream;
+      let streamType;
+
+      try {
+        if (song.url.includes("soundcloud.com")) {
+            try {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, client.config.SOUNDCLOUD);
+            } catch (error) {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.MP3, client.config.SOUNDCLOUD);
+                streamType = "unknown";
+            }
+          } else if (song.url.includes('youtube.com')) {
         stream = await ytdl(song.url);
         stream.on('error', function (er) {
           if (er) {
@@ -174,25 +185,24 @@ module.exports = {
           }
         });
       }
-
-      queue.connection.on('disconnect', () =>
-        message.client.queue.delete(message.guild.id)
-      );
-      const dispatcher = queue.connection
-        .play(
-          ytdl(song.url, {
-            quality: 'highestaudio',
-            highWaterMark: 1 << 25,
-            type: 'opus',
-          })
-        )
-        .on('finish', () => {
-          const shiffed = queue.songs.shift();
-          if (queue.loop === true) {
-            queue.songs.push(shiffed);
-          }
+    } catch (error) {
+      if (queue) {
+          queue.songs.shift();
           play(queue.songs[0]);
-        });
+      }
+
+      console.error(error);
+      return message.channel.send("err");
+  }
+
+  queue.connection.on("disconnect", () => message.client.queue.delete(message.guild.id));
+  const dispatcher = queue.connection.play(stream, { type: streamType }).on("finish", () => {
+      const shiffed = queue.songs.shift();
+      if (queue.loop === true) {
+          queue.songs.push(shiffed);
+      }
+      play(queue.songs[0]);
+  });
 
       dispatcher.setVolumeLogarithmic(queue.volume / 100);
       let thing = new MessageEmbed()

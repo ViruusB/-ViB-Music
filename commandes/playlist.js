@@ -5,6 +5,7 @@ const ytdlDiscord = require('ytdl-core-discord');
 var ytpl = require('ytpl');
 const sendError = require('../util/error');
 const fs = require('fs');
+const scdl = require("soundcloud-downloader").default;
 
 module.exports = {
   info: {
@@ -164,8 +165,18 @@ module.exports = {
         message.client.queue.delete(message.guild.id);
         return;
       }
-      let stream = null;
-      if (song.url.includes('youtube.com')) {
+      let stream;
+      let streamType;
+
+      try {
+        if (song.url.includes("soundcloud.com")) {
+            try {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, client.config.SOUNDCLOUD);
+            } catch (error) {
+                stream = await scdl.downloadFormat(song.url, scdl.FORMATS.MP3, client.config.SOUNDCLOUD);
+                streamType = "unknown";
+            }
+          } else if (song.url.includes('youtube.com')) {
         stream = await ytdl(song.url);
         stream.on('error', function (er) {
           if (er) {
@@ -180,25 +191,21 @@ module.exports = {
           }
         });
       }
-
-      serverQueue.connection.on('disconnect', () =>
-        message.client.queue.delete(message.guild.id)
-      );
-      const dispatcher = serverQueue.connection
-        .play(
-          ytdl(song.url, {
-            quality: 'highestaudio',
-            highWaterMark: 1 << 25,
-            type: 'opus',
-          })
-        )
-        .on('finish', () => {
-          const shiffed = serverQueue.songs.shift();
-          if (serverQueue.loop === true) {
-            serverQueue.songs.push(shiffed);
-          }
-          play(guild, serverQueue.songs[0]);
-        });
+    } catch (error) {
+      if (serverQueue) {
+          console.log(error);
+          serverQueue.songs.shift();
+          play(serverQueue.songs[0]);
+      }
+  }
+  serverQueue.connection.on("disconnect", () => message.client.queue.delete(message.guild.id));
+  const dispatcher = serverQueue.connection.play(stream, { type: streamType }).on("finish", () => {
+      const shiffed = serverQueue.songs.shift();
+      if (serverQueue.loop === true) {
+          serverQueue.songs.push(shiffed);
+      }
+      play(guild, serverQueue.songs[0]);
+  });
 
       dispatcher.setVolume(serverQueue.volume / 100);
       let thing = new MessageEmbed()

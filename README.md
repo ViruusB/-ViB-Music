@@ -13,26 +13,12 @@ npm i -> Installation des modules nécessaire et de votre package.
 TOKEN -> Déjà programmé pour l'hebergement sur Heroku à modifier dans le .env  
 PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env  
 
-Aucune API n'est à ajoutée/remplacée  
-
-# LAST UPDATE  
--> Debug Complet.  
-
-# UPDATE 22/03/2021 | 03/22/2021  
--> Ajout d'un message [TimeOut 3 secondes] sur toutes commandes.  
-  
-# UPDATE 20/03/2021 | 03/20/2021  
--> Ajout de détail + épuration sur les [EMBEDS] de lecture  
--> Debug de certains [EMBEDS] empêchant leurs apparition.  
--> Ajout de l'utilisation [MANAGE_MESSAGES] sur [STOP & LEAVE]  
--> Refonte du [!help]  
-
-# UPDATE 01/03/2021 | 03/01/2021  
--> Modification de l'activité du Bot  
--> Modification de l'[API] du Bot    
--> Modification & Passage des Commandes en [FR & EN]  
--> Modification des Assets.  
--> Passage du Bot en 2.0  
+# LAST UPDATE 24 MARS 2021  
+-> Debug / Update [lyrics.js]  
+-> Update [play.js,playlist,js,queue.js,search.js]  
+-> Add gestionnaire des pages [pagination.js]  
+-> New package [soundcloud]  
+-> Passage du Bot en 2.2  
 
 # Prochainement  
 -> Forcer les commandes sur un salon spécifié.  
