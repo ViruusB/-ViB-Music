@@ -45,7 +45,7 @@ module.exports = {
 
     var serverQueue = message.client.queue.get(message.guild.id);
     try {
-      var searched = await YouTube.search(searchString, { limit: 10 });
+      var searched = await YouTube.search(searchString, { limit: 20 });
       if (searched[0] == undefined)
         return sendError(
           "Il semble que je n'ai pas pu trouver la chanson demandée.",

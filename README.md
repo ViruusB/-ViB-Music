@@ -18,6 +18,7 @@ PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .e
 -> Update [play.js,playlist,js,queue.js,search.js]  
 -> Add gestionnaire des pages [pagination.js]  
 -> New package [soundcloud]  
+-> Update limitation de recherche [search.js]  
 -> Passage du Bot en 2.2  
 
 # Prochainement  
