@@ -39,7 +39,7 @@ module.exports = {
     .addField("Salon Texte", queue.textChannel, true)
     .addField("Salon Vocal", queue.voiceChannel, true)
     .addField('Volume :loud_sound:', queue.volume, true)
-    .setFooter(`Page 1 sur ${chunked.length}.`);
+    .setFooter(`\`\`1 sur ${chunked.length}.\`\``);
 if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
 
 try {
