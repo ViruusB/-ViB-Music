@@ -39,7 +39,7 @@ module.exports = {
       .setThumbnail(queue.songs[0].img)
       .setColor('YELLOW')
       .setDescription(splittedLyrics[0])
-      .setFooter(`\`\`1 sur ${splittedLyrics.length}.\`\``)
+      .setFooter(`1 sur ${splittedLyrics.length}.`)
       .setTimestamp();
 
       const lyricsMsg = await message.channel.send(lyricsEmbed);
