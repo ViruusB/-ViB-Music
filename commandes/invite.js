@@ -22,7 +22,7 @@ module.exports = {
       )
       .setColor('RANDOM');
       setTimeout(() => message.delete(), 3000);
-      console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(` INVITE `))+ ']\n')
+      console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(` INVITE `))+ ']')
     return message.channel.send(invite);
   },
 };
