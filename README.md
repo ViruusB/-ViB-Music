@@ -20,7 +20,7 @@ PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .e
 -> Next Update [FIN MARS]  
 ```
 
-# UPDATE 24 MARS 2021  
+# UPDATE 24 MARS 2021   
 ```
 -> Debug / Update [lyrics.js]  
 -> Update [play.js,playlist,js,queue.js,search.js]  
