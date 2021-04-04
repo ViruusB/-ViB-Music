@@ -2,7 +2,7 @@
 
 <h1 align="center">©ViruusB  </h1>
 
-<h1 align="center">Invitation Bot: [Lien d'invitation] (https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot) </div></h1> 
+Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)  
 
 
 ## 📝 LAST UPDATE  
@@ -39,4 +39,3 @@ Vous avez une erreur ou un problème avec le code/bot? Rejoignez ce serveur et p
 ## 📸 Screenshots  
 
 <div align="center"><img src="https://i.imgur.com/pY04kgQ.png"></div>
-# -ViB-Music
