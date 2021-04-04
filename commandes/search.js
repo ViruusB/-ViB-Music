@@ -68,7 +68,7 @@ module.exports = {
             )
             .join('\n')}`
         )
-        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file (30 secondes).");
+        .setFooter("Taper le numéro de la chanson pour l'ajouter à la file\nVous avez 30 secondes.");
 
       message.channel.send(embedPlay).then((m) =>
         m.delete({
