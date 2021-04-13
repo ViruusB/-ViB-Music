@@ -144,7 +144,7 @@ module.exports = {
     message.client.queue.set(message.guild.id, queueConstruct);
     queueConstruct.songs.push(song);
 
-    const play = (song) => {
+    const play = async (song) => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
         sendError(
