@@ -5,6 +5,11 @@
 Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)  
 
 
+## 📝 LAST DEBUG  
+```  
+-> Fix [DiscordAPIError]  
+```  
+
 ## 📝 LAST UPDATE  
 ```  
 -> New visual update [ API ] [ViB]Music  
