@@ -37,7 +37,7 @@ module.exports = {
         message.channel
       );
 
-    if (!searchString || !url)
+    if (!searchString && !url)
       return sendError(
         `Utilisation: \`\`${message.client.config.prefix}playlist <YouTube_Playlist_URL | Nom_Playlist>\`\``,
         message.channel

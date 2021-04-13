@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
         'Erreur: ',
         promise,
         'Raison: ',
-        reason.stack || reason
+        reason.stack && reason
       );
     } catch {
       console.error(reason);
