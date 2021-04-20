@@ -1,1 +1,1 @@
-worker: node [ViB]Music.js
+worker: node index.js

@@ -5,12 +5,17 @@
 Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)  
 
 
-## 📝 LAST DEBUG  
+## 📝 LAST UPDATE 20 AVRIL 2021  
 ```  
--> Fix [DiscordAPIError]  
+        * Add gestionnaire playing.js
+        * Update play.js
+        * Update playlist.js
+        * Update search.js
+        * Update playing.js
+        * Fix [DiscordAPIError]  
 ```  
 
-## 📝 LAST UPDATE  
+## 📝 UPDATE 28 MARS 2021  
 ```  
 -> New visual update [ API ] [ViB]Music  
 -> Debug / Update [lyrics.js]  
@@ -36,9 +41,9 @@ TOKEN -> Déjà programmé pour l'hebergement sur Heroku à modifier dans le .en
 PREFIX -> Déjà programmé pour l'hebergement sur Heroku à modifier dand le .env  
 
 
-## 📝 [Support](https://discord.gg/mpx3DcQQGF)  
+## 📝 [Support](https://discord.gg/YC4jNpeQkG)  
 
-Vous avez une erreur ou un problème avec le code/bot? Rejoignez ce serveur et posez votre question au lieu de créer des problèmes, sauf s'il s'agit d'un bug de code. https://discord.gg/mpx3DcQQGF  
+Vous avez une erreur ou un problème avec le code/bot? Rejoignez ce serveur et posez votre question au lieu de créer des problèmes, sauf s'il s'agit d'un bug de code. https://discord.gg/YC4jNpeQkG  
 
 
 ## 📸 Screenshots  
