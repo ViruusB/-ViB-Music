@@ -39,7 +39,7 @@ module.exports = {
         'Leave',
         'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'
       )
-      .setColor('RED')
+      .setColor('2f3136')
       .setDescription(`🎶 | ${client.user.username} a quitté le salon vocal.`)
       .setTimestamp();
     return message.channel.send(Embed)

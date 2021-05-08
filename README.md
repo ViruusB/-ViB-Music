@@ -7,8 +7,10 @@ Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=7498
 
 ## 📝 LAST UPDATE 08 MAI 2021  
 ```  
-        * Remove gestionnaire [playing.js]
+        * Ajout du lien direct sur les titres
+        * Update [playing.js]
         * Update de TOUTES les commandes
+        * Ajout de logs
         * New visual [assets]
         * Update 2.8.9
 ```  

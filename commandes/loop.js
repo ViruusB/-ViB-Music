@@ -18,7 +18,7 @@ module.exports = {
       setTimeout(() => message.delete(), 3000);
       return message.channel.send({
         embed: {
-          color: 'GREEN',
+          color: '2f3136',
           description: `🔁  **|**  Musique actuelle en boucle:  **\`${
             serverQueue.loop === true ? 'ACTIVE' : 'DESACTIVE'
           }\`**`,

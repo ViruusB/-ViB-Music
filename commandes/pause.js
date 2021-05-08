@@ -27,7 +27,7 @@ module.exports = {
       }
       let xd = new MessageEmbed()
         .setDescription('⏸ | La musique a été mis en pause !')
-        .setColor('YELLOW')
+        .setColor('2f3136')
         .setAuthor(
           'Pause',
           'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/pause.png'

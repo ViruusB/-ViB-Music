@@ -32,7 +32,8 @@ module.exports = {
       message.client.queue.delete(message.guild.id);
       return sendError(
         `:notes: L'utilisateur a arrété et la liste des chansons a été effacées: \`${error}\``,
-        message.channel);
+        message.channel
+      );
     }
   },
 };

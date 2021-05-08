@@ -13,12 +13,12 @@ module.exports = {
   run: async function (client, message, args) {
     console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     setTimeout(() => message.delete(), 3000);
-    if (!args.length || isNaN(args[0]))
+    if (!args.length && isNaN(args[0]))
       return message.channel
         .send({
           embed: {
             color: 'GREEN',
-            description: `**Utilisation**: \`${client.config.PREFIX}skipto <numero_dans_la_liste>\``,
+            description: `**Utilisation**: \`${client.config.prefix}skipto <numero_dans_la_liste>\``,
           },
         })
         .catch(console.error);

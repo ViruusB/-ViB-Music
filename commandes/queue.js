@@ -35,14 +35,14 @@ module.exports = {
     const embed = new MessageEmbed()
     .setAuthor("Liste des Musiques", "https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif")
     .setThumbnail(message.guild.iconURL())
-    .setColor("RANDOM")
+    .setColor("2f3136")
     .setDescription(chunked[0])
     .addField("Lecture en cour", `[${queue.songs[0].title}](${queue.songs[0].url})`, true)
     .addField("Salon Texte", queue.textChannel, true)
     .addField("Salon Vocal", queue.voiceChannel, true)
     .addField('Volume :loud_sound:', queue.volume, true)
     .setFooter(`1 sur ${chunked.length}.`);
-if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.PREFIX}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
+if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
 
 try {
     const queueMsg = await message.channel.send(embed);

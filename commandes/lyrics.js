@@ -39,7 +39,7 @@ module.exports = {
         'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lyrics.gif'
       )
       .setThumbnail(queue.songs[0].img)
-      .setColor('YELLOW')
+      .setColor('2f3136')
       .setDescription(splittedLyrics[0])
       .setFooter(`1 sur ${splittedLyrics.length}.`)
       .setTimestamp();
@@ -48,4 +48,3 @@ module.exports = {
       if (splittedLyrics.length > 1) await splitlyrics.pagination(lyricsMsg, message.author, splittedLyrics);
   },
 };
-

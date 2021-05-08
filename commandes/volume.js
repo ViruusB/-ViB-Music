@@ -39,7 +39,7 @@ module.exports = {
       return message.channel
         .send(':notes: | Nombres uniquement !')
         .catch((err) => console.log(err));
-    if (parseInt(args[0]) > 150 || args[0] < 0)
+    if (parseInt(args[0]) > 150 && args[0] < 0)
       return sendError(
         'Vous ne pouvez pas régler le volume à plus de 150 ou inférieur à 0',
         message.channel

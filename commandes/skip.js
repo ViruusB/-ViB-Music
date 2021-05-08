@@ -32,7 +32,7 @@ module.exports = {
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
         .setDescription('▶ | Reprend la musique pour vous')
-        .setColor('YELLOW')
+        .setColor('2f3136')
         .setAuthor(
           'Skip',
           'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'

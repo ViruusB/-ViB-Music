@@ -19,7 +19,7 @@ module.exports = {
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
         .setDescription('▶ | La musique a été relancé.')
-        .setColor('YELLOW')
+        .setColor('2f3136')
         .setAuthor(
           'Relance',
           'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'

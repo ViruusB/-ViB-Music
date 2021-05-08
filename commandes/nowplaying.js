@@ -26,8 +26,8 @@ module.exports = {
         'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'
       )
       .setThumbnail(song.img)
-      .setColor('RANDOM')
-      .addField('Nom', song.title, '\n')
+      .setColor('2f3136')
+      .addField('Nom', `[${song.title}](${song.url})`, '\n')
       .addField('Durée', ':stopwatch: ' + song.duration, true)
       .addField('Volume', ':loud_sound: ' + serverQueue.volume, true)
       .setFooter(`Vues: ${song.views} | Année: ${song.ago} | Ajouté: ${song.req.tag}`);

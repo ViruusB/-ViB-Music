@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -9,6 +10,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     var allcmds = '';
 
     client.commands.forEach((cmd) => {
@@ -29,7 +31,7 @@ module.exports = {
         'Liste des commandes de ' + client.user.username,
         'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
       )
-      .setColor('BLUE')
+      .setColor('2f3136')
       .setDescription(allcmds)
       .setFooter(
         `Pour obtenir des informations sur chaque commandes, vous pouvez utiliser ${client.config.prefix}help [nom_de_la_commande]\nExemple: ${client.config.prefix}help play`
@@ -44,7 +46,7 @@ module.exports = {
       if (!command) return message.channel.send('Commande inconnue');
       let commandinfo = new MessageEmbed()
         .setTitle('Information de la Commande: ' + command.info.name + '')
-        .setColor('YELLOW').setDescription(`
+        .setColor('2f3136').setDescription(`
 Nom: \`\`${command.info.name}\`\`
 Description: \`\`${command.info.description}\`\`
 Utilisation: \`\`${client.config.prefix}${command.info.name} ${
