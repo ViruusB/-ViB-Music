@@ -1,4 +1,4 @@
-<h1 align="center"><img src="./assets/vib.gif" width="30px"> [VIB] BOT MUSICAL <img src="./assets/vib.gif" width="30px"></h1>
+<h1 align="center"><img src="./assets/vib.jpg" width="30px"> [VIB] BOT MUSICAL <img src="./assets/vib.jpg" width="30px"></h1>
 
 <h1 align="center">©ViruusB  </h1>
 <h1 align="center">Serveur: https://discord.gg/YC4jNpeQkG </div></h1>
