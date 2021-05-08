@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const lyricsFinder = require('lyrics-finder');
 const sendError = require('../util/error');
 const splitlyrics = require("../util/pagination");
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -12,6 +13,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     const queue = message.client.queue.get(message.guild.id);
     setTimeout(() => message.delete(), 3000);
     if (!queue)
@@ -34,7 +36,7 @@ module.exports = {
     let lyricsEmbed = new MessageEmbed()
       .setAuthor(
         `${queue.songs[0].title} — Lyrics`,
-        'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+        'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lyrics.gif'
       )
       .setThumbnail(queue.songs[0].img)
       .setColor('YELLOW')
@@ -46,3 +48,4 @@ module.exports = {
       if (splittedLyrics.length > 1) await splitlyrics.pagination(lyricsMsg, message.author, splittedLyrics);
   },
 };
+

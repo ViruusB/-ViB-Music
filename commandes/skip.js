@@ -1,5 +1,6 @@
 const { Util, MessageEmbed } = require('discord.js');
 const sendError = require('../util/error');
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -10,6 +11,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     const channel = message.member.voice.channel;
     setTimeout(() => message.delete(), 3000);
     if (!channel)
@@ -33,7 +35,7 @@ module.exports = {
         .setColor('YELLOW')
         .setAuthor(
           'Skip',
-          'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+          'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'
         );
 
       return message.channel.send(xd).catch((err) => console.log(err));

@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const sendError = require('../util/error');
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -10,6 +11,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     const channel = message.member.voice.channel;
     setTimeout(() => message.delete(), 3000);
     if (!channel)
@@ -37,7 +39,7 @@ module.exports = {
       return message.channel
         .send(':notes: | Nombres uniquement !')
         .catch((err) => console.log(err));
-    if (parseInt(args[0]) > 150 && args[0] < 0)
+    if (parseInt(args[0]) > 150 || args[0] < 0)
       return sendError(
         'Vous ne pouvez pas régler le volume à plus de 150 ou inférieur à 0',
         message.channel
@@ -48,7 +50,7 @@ module.exports = {
       .setDescription(`Volume réglé sur: \`\`${args[0] / 1}\`\` :loud_sound:`)
       .setAuthor(
         'Volume',
-        'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+        'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/volume.gif'
       )
       .setColor('YELLOW');
     return message.channel.send(xd);

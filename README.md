@@ -5,14 +5,12 @@
 Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=749823254126133318&permissions=37080128&scope=bot)  
 
 
-## 📝 LAST UPDATE 20 AVRIL 2021  
+## 📝 LAST UPDATE 08 MAI 2021  
 ```  
-        * Add gestionnaire playing.js
-        * Update play.js
-        * Update playlist.js
-        * Update search.js
-        * Update playing.js
-        * Fix [DiscordAPIError]  
+        * Remove gestionnaire [playing.js]
+        * Update de TOUTES les commandes
+        * New visual [assets]
+        * Update 2.8.9
 ```  
 
 ## 📝 UPDATE 28 MARS 2021  

@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const sendError = require('../util/error');
 const util = require("../util/pagination");
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -11,6 +12,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     const permissions = message.channel.permissionsFor(message.client.user);
     setTimeout(() => message.delete(), 3000);
     if (!permissions.has(['MANAGE_MESSAGES', 'ADD_REACTIONS']))
@@ -31,7 +33,7 @@ module.exports = {
     const chunked = util.chunk(que, 10).map((x) => x.join("\n"));
 
     const embed = new MessageEmbed()
-    .setAuthor("Liste des Musiques", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+    .setAuthor("Liste des Musiques", "https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif")
     .setThumbnail(message.guild.iconURL())
     .setColor("RANDOM")
     .setDescription(chunked[0])
@@ -40,7 +42,7 @@ module.exports = {
     .addField("Salon Vocal", queue.voiceChannel, true)
     .addField('Volume :loud_sound:', queue.volume, true)
     .setFooter(`1 sur ${chunked.length}.`);
-if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.prefix}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
+if (queue.songs.length === 1) embed.setDescription(`Aucune chanson est en attente \`\`${message.client.config.PREFIX}play <nom_de_la_musique> | <artiste> | <YouTube_URL>\`\``);
 
 try {
     const queueMsg = await message.channel.send(embed);

@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const sendError = require('../util/error');
+const chalk = require('chalk');
 
 module.exports = {
   info: {
@@ -10,6 +11,7 @@ module.exports = {
   },
 
   run: async function (client, message, args) {
+    console.log(`${(chalk.green(`${message.author.username}`))}` +' sur '+ (chalk.magenta(`${message.guild.name}`)) + ' salon ' + (chalk.magenta(`${message.channel.name}`))+' : ' + ' A ouvert la fonction [' + (chalk.cyan(`${message.author.lastMessage}`))+ ']')
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.reply( ` tu n'as pas la permission d'utiliser la commande \`\`stop\`\``);
     const channel = message.member.voice.channel;
