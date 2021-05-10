@@ -29,7 +29,7 @@ module.exports = {
     let embed = new MessageEmbed()
       .setAuthor(
         'Liste des commandes de ' + client.user.username,
-        'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif'
+        'https://raw.githubusercontent.com/ViruusB/-ViB-/main/assets/lecture.gif'
       )
       .setColor('2f3136')
       .setDescription(allcmds)
