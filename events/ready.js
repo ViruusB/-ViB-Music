@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const version = "2.8.9"
+const version = "v2.8.9"
 
 module.exports = async (client) => {
   console.log("--------------------------------------");

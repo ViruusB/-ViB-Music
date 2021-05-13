@@ -29,7 +29,7 @@ Invitation Bot: [[ViB]Music](https://discord.com/oauth2/authorize?client_id=7498
 
 ## 📝 [ViB]MusicBotDiscord  
 
-VERSION 2.5  
+VERSION v2.8.9  
 
 [ViB]Music est un bot musical discord 🎧  
 
