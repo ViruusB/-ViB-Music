@@ -9,7 +9,7 @@ module.exports = async (client) => {
   console.log('______________________________________');
   client.channels.cache;
   let activities = [
-      `${client.config.PREFIX}help`,
+      `${client.config.prefix}help`,
       `${client.guilds.cache
         .map((g) => g.memberCount)
         .reduce((a, b) => a + b)} utilisateurs`,
