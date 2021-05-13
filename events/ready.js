@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const version = "2.8.9"
 
 module.exports = async (client) => {
   console.log("--------------------------------------");
@@ -8,11 +9,12 @@ module.exports = async (client) => {
   console.log('______________________________________');
   client.channels.cache;
   let activities = [
-      '!help',
+      `${client.config.PREFIX}help`,
       `${client.guilds.cache
         .map((g) => g.memberCount)
         .reduce((a, b) => a + b)} utilisateurs`,
-      '[ViB]Music',
+      `${version}`,
+      '© ViruusB',
     ],
     i = 0;
 
